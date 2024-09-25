@@ -5,11 +5,12 @@ export default {
   theme: {
     extend: {
       width: {
-        '504': '504px',
+        '400': '400px',
+        '704': '704px',
       },
       colors: {
         'yellow cream': '#FFE2B4',
-        'orange dark': '#FBB03B',
+        'yellow mostard': '#FBB03B',
       },
       fontFamily: {
         sans: ['sans-serif'],
