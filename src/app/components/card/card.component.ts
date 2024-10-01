@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-aside',
+  selector: 'app-card',
   standalone: true,
   imports: [],
-  templateUrl: './aside.component.html',
+  templateUrl: './card.component.html',
 })
-export class AsideComponent {
+export class CardComponent {
 
 }
