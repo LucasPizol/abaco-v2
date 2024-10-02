@@ -11,8 +11,7 @@ export default {
       colors: {
         'yellow cream': '#FFE2B4',
         'yellow mostard': '#FBB03B',
-        'light gray': '#FFFFFFF2',
-        'smoke gray': 'F5F5F5',
+        'smoke gray': '#F3F3F3',
       },
       fontFamily: {
         sans: ['sans-serif'],
