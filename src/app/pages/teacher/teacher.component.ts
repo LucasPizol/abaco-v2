@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MainComponent } from "../../common/main/main.component";
+import { AsideComponent } from '../../common/aside/aside.component';
 
 @Component({
   selector: 'app-teacher',
   standalone: true,
-  imports: [RouterModule, MainComponent],
+  imports: [RouterModule, AsideComponent],
   templateUrl: './teacher.component.html',
 })
 export class TeacherComponent {

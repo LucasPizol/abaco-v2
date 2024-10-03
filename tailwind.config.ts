@@ -7,6 +7,7 @@ export default {
       width: {
         '400': '400px',
         '704': '704px',
+        '750': '750px'
       },
       colors: {
         'yellow cream': '#FFE2B4',
