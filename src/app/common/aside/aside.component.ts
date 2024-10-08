@@ -6,12 +6,11 @@ import { ReorganizesMainComponent } from "../../components/reorganizes-main/reor
 import { TitlesComponent } from "../../components/titles/titles.component";
 import { NavLinkComponent } from "../../components/nav-link/nav-link.component";
 import { MainBtnComponent } from "../../components/main-btn/main-btn.component";
-import { MainComponent } from "../main/main.component";
 
 @Component({
   selector: 'app-aside',
   standalone: true,
-  imports: [ReorganizesDivComponent, MainDivComponent, ImgAbacoComponent, ReorganizesMainComponent, TitlesComponent, NavLinkComponent, MainBtnComponent, MainComponent],
+  imports: [ReorganizesDivComponent, MainDivComponent, ImgAbacoComponent, ReorganizesMainComponent, TitlesComponent, NavLinkComponent, MainBtnComponent],
   templateUrl: './aside.component.html',
 })
 export class AsideComponent {

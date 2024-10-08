@@ -14,11 +14,6 @@ export default {
         'yellow mostard': '#FBB03B',
         'smoke gray': '#F3F3F3',
       },
-      fontFamily: {
-        sans: ['sans-serif'],
-        roboto: ['Roboto'],
-        varela: ['Varela Round']
-      },
     },
   },
   plugins: [],
