@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/test/test.component').then(m => m.TestComponent),
   },
   {
+    path: 'calendario',
+    loadComponent: () => import('./pages/calendario/calendario.component').then(m => m.CalendarioComponent),
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',
