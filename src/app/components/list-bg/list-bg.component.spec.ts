@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroAlunoComponent } from './cadAluno.component';
+import { ListBgComponent } from './list-bg.component';
 
-describe('CadastroAlunoComponent', () => {
-  let component: CadastroAlunoComponent;
-  let fixture: ComponentFixture<CadastroAlunoComponent>;
+describe('ListDivComponent', () => {
+  let component: ListBgComponent;
+  let fixture: ComponentFixture<ListBgComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CadastroAlunoComponent]
+      imports: [ListBgComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CadastroAlunoComponent);
+    fixture = TestBed.createComponent(ListBgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

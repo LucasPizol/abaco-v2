@@ -14,8 +14,8 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/test/test.component').then(m => m.TestComponent),
   },
   {
-    path: 'cadastroaluno',
-    loadComponent: () => import('./pages/cadastroAluno/cadAluno.component').then(m => m.CadastroAlunoComponent),
+    path: 'listaluno',
+    loadComponent: () => import('./pages/listAluno/listAluno.component').then(m => m.ListAlunoComponent)
   },
   {
     path: '**',

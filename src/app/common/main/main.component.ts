@@ -7,13 +7,14 @@ import { ReorganizesMainComponent } from "../../components/reorganizes-main/reor
 import { TitlesComponent } from "../../components/titles/titles.component";
 import { SubTextComponent } from "../../components/sub-text/sub-text.component";
 import { MainDivComponent } from "../../components/main-div/main-div.component";
+import { ReorganizeDivCardComponent } from '../../components/reorganize-div-card/reorganize-div-card.component';
 
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [CardComponent, ImgAddCircleComponent, ImgNoteAddComponent, ImgPagePreviewComponent, ReorganizesMainComponent,
-    TitlesComponent, SubTextComponent, MainDivComponent],
+    TitlesComponent, SubTextComponent, MainDivComponent, ReorganizeDivCardComponent],
   templateUrl: './main.component.html',
 })
 export class MainComponent {
