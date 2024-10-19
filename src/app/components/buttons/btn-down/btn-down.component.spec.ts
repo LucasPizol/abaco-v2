@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputsComponent } from './inputs.component';
+import { BtnDownComponent } from './btn-down.component';
 
-describe('InputsComponent', () => {
-  let component: InputsComponent;
-  let fixture: ComponentFixture<InputsComponent>;
+describe('BtnDownComponent', () => {
+  let component: BtnDownComponent;
+  let fixture: ComponentFixture<BtnDownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputsComponent]
+      imports: [BtnDownComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputsComponent);
+    fixture = TestBed.createComponent(BtnDownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,28 @@
+<input type="checkbox" class="custom-checkbox">
+<style>
+    .custom-checkbox {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        appearance: none;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .custom-checkbox:checked {
+        background-color: #FBB03B;
+        border-color: #FBB03B;
+    }
+
+    .custom-checkbox:checked::before {
+        content: "\2713";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        color: white;
+    }
+</style>

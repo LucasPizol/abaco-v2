@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './list-div.component.html',
-  styleUrl: './list-div.component.css'
 })
 export class ListDivComponent {
 

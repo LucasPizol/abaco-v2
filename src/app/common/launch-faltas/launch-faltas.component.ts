@@ -10,15 +10,16 @@ import { SelectShortComponent } from '../../components/select-short/select-short
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
 import { DatePickerComponent} from '../../components/datepicker/datepicker.component';
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
+import { CheckboxComponent } from "../../components/checkbox/checkbox.component";
 
 
 @Component({
-  selector: 'app-launch-notas',
+  selector: 'app-launch-faltas',
   standalone: true,
-  imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ListDivComponent, 
-    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent, DatePickerComponent, BtnDownComponent ],
-  templateUrl: './launch-notas.component.html'
+  imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ListDivComponent,
+    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent, DatePickerComponent, BtnDownComponent, CheckboxComponent],
+  templateUrl: './launch-faltas.component.html',
 })
-export class LaunchNotasComponent {
+export class LaunchFaltasComponent {
 
 }

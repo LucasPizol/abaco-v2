@@ -7,7 +7,7 @@ import { ImgDeleteComponent } from "../../components/images/img-delete/img-delet
 import { ReorganizesMainComponent } from "../../components/reorganizes-main/reorganizes-main.component";
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
-import { SelecionarComponent } from '../../components/selecionar/selecionar.component';
+import { SelectShortComponent } from '../../components/select-short/select-short.component';
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
 import { ImgViewComponent } from '../../components/images/img-view/img-view.component';
 
@@ -16,7 +16,7 @@ import { ImgViewComponent } from '../../components/images/img-view/img-view.comp
   selector: 'app-list-freq',
   standalone: true,
   imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ImgDeleteComponent, ListDivComponent, 
-    ReorganizesMainComponent, TitlesComponent, SelecionarComponent, ReorganizeInputComponent, ImgViewComponent],
+    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent, ImgViewComponent],
   templateUrl: './list-freq.component.html'
 })
 export class ListFreqComponent {

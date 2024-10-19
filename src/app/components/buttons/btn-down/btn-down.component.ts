@@ -2,13 +2,13 @@ import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-main-btn',
+  selector: 'app-btn-down',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './main-btn.component.html',
+  templateUrl: './btn-down.component.html',
 
 })
-export class MainBtnComponent {
+export class BtnDownComponent {
   @Input() text: string = '';
   @Input() route: string = '';
 }

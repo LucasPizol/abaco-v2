@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-inputs',
+  selector: 'app-input-long',
   standalone: true,
   imports: [],
-  templateUrl: './inputs.component.html',
+  templateUrl: './input-long.component.html',
 })
-export class InputsComponent {
+export class InputLongComponent {
   @Input() type: string = '';
   @Input() placeholder: string = '';
 }

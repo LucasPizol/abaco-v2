@@ -4,31 +4,33 @@
     </app-reorganizes-main>
     <app-reorganize-input>
         <app-pesquisa></app-pesquisa>
-        <app-selecionar type="Curso" placeholder="Selecione o Curso"></app-selecionar>
+        <app-select-short  type="Curso" placeholder="Selecione o Curso"></app-select-short >
     </app-reorganize-input>
     <app-reorganizes-main>
-    <table class="bg-[#FFFFFF] rounded" cellSpacing="2" cellpadding="8" style="width: 800px; text-align:left">
-        <tr class="p-2">
-            <th class="text-[13px]">Registro Acadêmico</th>
-            <th class="text-[13px]">Nome Completo</th>
-            <th class="text-[13px]">Faltas Totais</th>
-            <th class="text-[13px]">Situação</th>
-            <th class="text-[13px]"></th>
-        <tr>
-            <tr>
-                <td class="text-[14px]">23001518</td>
-                <td class="text-[14px]">Mariana Tessarini</td>
-                <td class="text-[14px]">0</td>
-                <td class="text-[14px]">Matriculado</td>
-                <td><app-img-view></app-img-view></td>
-            </tr>
-            <tr>
-                <td class="text-[14px]">23001518</td>
-                <td class="text-[14px]">Mariana</td>
-                <td class="text-[14px]">3</td>
-                <td class="text-[14px]">Matriculado</td>
-                <td><app-img-view></app-img-view></td>
-            </tr>
-    </table>
-</app-reorganizes-main>
+        <div style="height: 300px; overflow-y: auto; width: 800px;">
+            <table class="bg-[#FFFFFF] rounded" cellSpacing="2" cellPadding="8" style="width: 100%; text-align:left">
+                <tr class="p-2">
+                    <th class="text-[13px]">Registro Acadêmico</th>
+                    <th class="text-[13px]">Nome Completo</th>
+                    <th class="text-[13px]">Faltas Totais</th>
+                    <th class="text-[13px]">Situação</th>
+                    <th class="text-[13px]"></th>
+                <tr>
+                <tr>
+                    <td class="text-[14px]">23001518</td>
+                    <td class="text-[14px]">Mariana Tessarini</td>
+                    <td class="text-[14px]">0</td>
+                    <td class="text-[14px]">Matriculado</td>
+                    <td><app-img-view></app-img-view></td>
+                </tr>
+                <tr>
+                    <td class="text-[14px]">23001518</td>
+                    <td class="text-[14px]">Mariana</td>
+                    <td class="text-[14px]">3</td>
+                    <td class="text-[14px]">Matriculado</td>
+                    <td><app-img-view></app-img-view></td>
+                </tr>
+            </table>
+        </div>
+    </app-reorganizes-main>
 </app-list-div>

@@ -3,9 +3,9 @@ import { ImgCalendarComponent } from '../images/img-calendar/img-calendar.compon
 
 @Component({
   selector: 'app-datepicker',
-  templateUrl: './datepicker.component.html',
   standalone: true,
   imports: [ImgCalendarComponent],
+  templateUrl: './datepicker.component.html'
 
 })
 export class DatePickerComponent {
