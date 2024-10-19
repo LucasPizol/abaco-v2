@@ -1,15 +1,13 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ImgSearchComponent } from '../images/img-search/img-search.component';
 
 @Component({
   selector: 'app-pesquisa',
   standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  template: `
-    <div class="mx-40 my-30">
-    <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input placeholder="input search text" />
-    </nz-input-group>
-    <ng-template #suffixIconSearch>
-  `
+  imports: [ImgSearchComponent],
+  templateUrl: "./pesquisa.component.html"
 })
-export class PesquisaComponent {}
+export class PesquisaComponent {
+  @Input() type: string = '';
+  @Input() placeholder: string = '';
+}

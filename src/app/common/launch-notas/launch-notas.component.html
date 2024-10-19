@@ -1,0 +1,41 @@
+<app-list-div>
+    <app-reorganizes-main>
+        <app-titles text="Lançamento de Notas"></app-titles>
+    </app-reorganizes-main>
+    <app-reorganize-input>
+        <app-selecionar type="Curso" placeholder="Selecione o Curso"></app-selecionar>
+        <app-selecionar type="Modulo" placeholder="Selecione o Módulo"></app-selecionar>
+    </app-reorganize-input>  
+    <app-reorganizes-main>
+        <app-reorganize-input> 
+         <app-datepicker placeholder="Selecione a Data"></app-datepicker>
+         <input placeholder="Descrição" class="font-[varela round] rounded-md text-md h-10 w-50 px-3"
+         style="width: 300px; text-align: left;">
+        </app-reorganize-input>
+    </app-reorganizes-main>  
+    <app-reorganizes-main>
+    <table class="bg-[#FFFFFF] rounded" cellSpacing="2" cellpadding="8" style="width: 800px; text-align:left">
+        <tr class="p-2">
+            <th class="text-[13px]">Registro Acadêmico</th>
+            <th class="text-[13px]">Nome Completo</th>
+            <th class="text-[13px]">Notas</th>
+            <th class="text-[13px]">Situação</th>
+            <th class="text-[13px]"></th>
+        <tr>
+            <tr>
+                <td class="text-[14px]">23001518</td>
+                <td class="text-[14px]">Mariana Tessarini</td>
+                <td class="text-[14px]"><input visible type=string style="border: 1px solid #000; border-radius: 5px; padding: 4px; width: 80px;"></td>
+                <td class="text-[14px]">Matriculado</td>
+                <td class="text-[14px]"><app-img-edit></app-img-edit></td>
+            </tr>
+            <tr>
+                <td class="text-[14px]">23001518</td>
+                <td class="text-[14px]">Mariana</td>
+                <td class="text-[14px]"><input visible type=string style="border: 1px solid #000; border-radius: 5px; padding: 4px; width: 80px;"></td>
+                <td class="text-[14px]">Matriculado</td>
+                <td class="text-[14px]"><app-img-edit></app-img-edit></td>
+            </tr>
+    </table>
+</app-reorganizes-main>
+</app-list-div>

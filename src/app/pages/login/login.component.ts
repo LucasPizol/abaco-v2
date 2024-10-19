@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ImgAbacoComponent } from "../../components/img-abaco/img-abaco.component";
+import { ImgAbacoComponent } from "../../components/images/img-abaco/img-abaco.component";
 import { InputsComponent } from "../../components/inputs/inputs.component";
 
 @Component({

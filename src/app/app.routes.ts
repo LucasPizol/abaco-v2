@@ -10,12 +10,24 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
   },
   {
-    path: 'test',
-    loadComponent: () => import('./pages/test/test.component').then(m => m.TestComponent),
+    path: 'listestudante',
+    loadComponent: () => import('./pages/listEstudante/listEstudante.component').then(m => m.ListEstudanteComponent)
   },
   {
-    path: 'listaluno',
-    loadComponent: () => import('./pages/listAluno/listAluno.component').then(m => m.ListAlunoComponent)
+    path: 'lancarnotas',
+    loadComponent: () => import('./pages/lancarNota/lancarNota.component').then(m => m.LancarNotaComponent)
+  },
+  {
+    path: 'listdocente',
+    loadComponent: () => import('./pages/listDocente/listDocente.component').then(m => m.ListDocenteComponent)
+  },
+  {
+    path: 'listaulas',
+    loadComponent: () => import('./pages/listAulas/listAulas.component').then(m => m.ListAulasComponent)
+  },
+  {
+    path: 'listfrequencia',
+    loadComponent: () => import('./pages/listFrequencia/listFrequencia.component').then(m => m.ListFrequenciaComponent)
   },
   {
     path: '**',
