@@ -42,6 +42,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/listFrequencia/listFrequencia.component').then(m => m.ListFrequenciaComponent)
   },
   {
+    path: 'calendario',
+    loadComponent: () => import('./pages/calendario/calendario.component').then(m => m.CalendarioComponent)
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',

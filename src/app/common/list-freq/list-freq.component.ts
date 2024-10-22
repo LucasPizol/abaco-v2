@@ -11,7 +11,6 @@ import { SelectShortComponent } from '../../components/select-short/select-short
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
 import { ImgViewComponent } from '../../components/images/img-view/img-view.component';
 
-
 @Component({
   selector: 'app-list-freq',
   standalone: true,
