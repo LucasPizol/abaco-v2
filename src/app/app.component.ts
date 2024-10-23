@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NzCalendarModule } from 'ng-zorro-antd/calendar';
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NzCalendarModule], 
   templateUrl: './app.component.html',
-  template: `<router-outlet></router-outlet>`
+  standalone: true,
+  imports: [RouterModule]  
 })
 export class AppComponent {
   title = 'front-abaco';
