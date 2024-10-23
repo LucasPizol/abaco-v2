@@ -6,21 +6,21 @@
         <app-sub-text text="Endereço"></app-sub-text>
     </app-reorganizes-main>
     <app-reorganize-input>
-        <app-input-long placeholder="CEP"></app-input-long>
-        <app-input-short placeholder="UF"></app-input-short>
+     <app-inputs type="Number" value="CEP" placeholder="CEP" class="h-[20px] w-[500px] text-[#F3F3F3]"></app-inputs>
+        <app-inputs value="UF" placeholder="UF" class="h[30px] w-[80px]"></app-inputs>
     </app-reorganize-input>
-    <app-reorganize-input>
-        <app-select-long placeholder="Zoneamento"></app-select-long>
-        <app-input-short placeholder="Município"></app-input-short>
+ <app-reorganize-input>
+     <app-select-long placeholder="Zoneamento"></app-select-long>
+        <app-inputs placeholder="Município" class="h-[40px] w-[80px] text-gray"></app-inputs>
     </app-reorganize-input>
-    <app-reorganize-input>
-        <app-input-long placeholder="Logradouro"></app-input-long>
-        <app-input-short placeholder="Número"></app-input-short>
+ <app-reorganize-input>
+     <app-inputs placeholder="Logradouro"></app-inputs>
+        <app-inputs placeholder="Número"></app-inputs>
     </app-reorganize-input>
-    <app-reorganize-input>
-        <app-input-long placeholder="Complemento"></app-input-long>
-        <app-input-short placeholder="Bairro"></app-input-short>
+ <app-reorganize-input>
+     <app-inputs placeholder="Complemento"></app-inputs>
+        <app-inputs placeholder="Bairro"></app-inputs>
     </app-reorganize-input>
-    <app-btn-down text="Cadastrar" route="/teacher"></app-btn-down>
+ <app-btn-down text="Cadastrar" route="/teacher"></app-btn-down>
 </app-list-div>
 

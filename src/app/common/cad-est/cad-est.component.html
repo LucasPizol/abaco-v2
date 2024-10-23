@@ -6,20 +6,20 @@
         <app-sub-text text="Dados Pessoais"></app-sub-text>
     </app-reorganizes-main>
     <app-reorganize-input>
-        <app-input-long value="Name" placeholder="Nome Completo"></app-input-long>
+        <app-inputs value="Name" placeholder="Nome Completo" class=""></app-inputs>
         <app-select-short placeholder="Gênero"></app-select-short>
     </app-reorganize-input>
     <app-reorganize-input>
-        <app-input-long value="RG" placeholder="RG"></app-input-long>
-        <app-input-short value="CPF" placeholder="CPF"></app-input-short>
+        <app-inputs type="Number" value="RG" placeholder="RG" class="text-[gray]"></app-inputs>
+        <app-inputs type="Number" value="CPF" placeholder="CPF" class="text-[gray]"></app-inputs>
     </app-reorganize-input>
     <app-reorganize-input>
-        <app-select-long placeholder="Nível de Escolaridade"></app-select-long>
-        <app-input-short placeholder="Data de Nascimento"></app-input-short>
+        <app-inputs placeholder="Nível de Escolaridade"></app-inputs>
+        <app-inputs placeholder="Data de Nascimento"></app-inputs>
     </app-reorganize-input>
     <app-reorganize-input>
-        <app-input-long placeholder="Email"></app-input-long>
-        <app-input-short placeholder="Telefone"></app-input-short>
+        <app-inputs type="Email" placeholder="Email"></app-inputs>
+        <app-inputs type="Number" placeholder="Telefone"></app-inputs>
     </app-reorganize-input>
     <app-btn-down text="Continuar" route="/cadastroendereco"></app-btn-down>
 </app-list-div>

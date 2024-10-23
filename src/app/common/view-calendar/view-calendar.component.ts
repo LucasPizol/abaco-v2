@@ -12,7 +12,6 @@ import { NzCalendarComponent, NzCalendarMode } from 'ng-zorro-antd/calendar';
   imports: [AsideComponent, ReorganizesMainComponent, ListDivComponent, TitlesComponent, 
     NzCalendarComponent],
   templateUrl: './view-calendar.component.html',
-  styleUrl: './view-calendar.component.css'
 })
 export class ViewCalendarComponent {
   date = new Date(2012, 11, 21);
