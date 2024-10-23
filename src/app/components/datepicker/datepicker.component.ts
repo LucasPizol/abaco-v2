@@ -10,4 +10,4 @@ import { ImgCalendarComponent } from '../images/img-calendar/img-calendar.compon
 })
 export class DatePickerComponent {
   @Input() placeholder: string = '';
-}
+}                                                    

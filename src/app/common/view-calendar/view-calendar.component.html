@@ -1,0 +1,13 @@
+<app-list-div>
+    <app-reorganizes-main>
+        <app-titles text="Visualização do Calendário"></app-titles>
+    </app-reorganizes-main>
+    <app-reorganizes-main>
+        <button
+        class="font-bold text-white mx-[260px] p-6 bg-[#FBB03B] flex justify-center items-center text-md font-[varela round] rounded-md h-3 hover:bg-opacity-70">
+        Criar Evento
+    </button>
+    <nz-calendar [(ngModel)]="date" [(nzMode)]="mode" (nzPanelChange)="panelChange($event)"></nz-calendar>
+    </app-reorganizes-main>
+    </app-list-div>
+
