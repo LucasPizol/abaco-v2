@@ -4,13 +4,14 @@ import { ReorganizesMainComponent } from '../../components/reorganizes-main/reor
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { NzCalendarComponent, NzCalendarMode } from 'ng-zorro-antd/calendar';
+import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
 
 @Component({
   selector: 'app-view-calendar',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [AsideComponent, ReorganizesMainComponent, ListDivComponent, TitlesComponent, 
-    NzCalendarComponent],
+  imports: [AsideComponent, ReorganizesMainComponent, ListDivComponent, TitlesComponent,
+    NzCalendarComponent, BtnDownComponent],
   templateUrl: './view-calendar.component.html',
 })
 export class ViewCalendarComponent {

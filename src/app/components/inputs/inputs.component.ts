@@ -10,4 +10,5 @@ export class InputsComponent {
   @Input() value: String = "";
   @Input() placeholder: String = "";
   @Input() type: String = "";
+  @Input() className: String = "";
 }
