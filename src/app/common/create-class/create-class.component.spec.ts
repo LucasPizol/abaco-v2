@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputLongComponent } from './input-long.component';
+import { CreateClassComponent } from './create-class.component';
 
-describe('InputLongComponent', () => {
-  let component: InputLongComponent;
-  let fixture: ComponentFixture<InputLongComponent>;
+describe('CreateClassComponent', () => {
+  let component: CreateClassComponent;
+  let fixture: ComponentFixture<CreateClassComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputLongComponent]
+      imports: [CreateClassComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InputLongComponent);
+    fixture = TestBed.createComponent(CreateClassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,6 +10,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
   },
   {
+    path: 'calendario',
+    loadComponent: () => import('./pages/calendario/calendario.component').then(m => m.CalendarioComponent)
+  },
+  {
     path: 'cadastroestudante',
     loadComponent: () => import('./pages/cadastroEstudante/cadastroEstudante.component').then(m => m.CadastroEstudanteComponent)
   },
@@ -42,8 +46,13 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/listFrequencia/listFrequencia.component').then(m => m.ListFrequenciaComponent)
   },
   {
+<<<<<<< HEAD
     path: 'calendario',
     loadComponent: () => import('./pages/calendario/calendario.component').then(m => m.CalendarioComponent)
+=======
+    path: 'criaraulas',
+    loadComponent: () => import('./pages/criarAula/criarAula.component').then(m => m.CriarAulaComponent)
+>>>>>>> 6060a00d25dcf0651d9fe27cada8cbbb508d5e41
   },
   {
     path: '**',

@@ -1,4 +1,5 @@
 <app-list-div>
+<<<<<<< HEAD
     <app-reorganizes-main>
         <app-titles text="Visualização de Calendário"></app-titles>
     </app-reorganizes-main>
@@ -12,3 +13,32 @@
         <app-calendar></app-calendar>
     </app-reorganizes-main>
 </app-list-div>
+=======
+<<<<<<< HEAD
+    <app-reorganizes-main>
+        <div class="flex flex-col items-start justify-center w-full gap-y-10">
+            <app-titles text="Visualização do Calendário"></app-titles>
+            <app-btn-down
+                class="bg-[#FBB03B] font-bold text-white rounded font-[varela round] px-4 py-2 flex justify-center items-center hover:bg-opacity-70">Criar
+                Evento</app-btn-down>
+            <nz-calendar [(ngModel)]="date" [(nzMode)]="mode" (nzPanelChange)="panelChange($event)"
+                class="w-full"></nz-calendar>
+        </div>
+    </app-reorganizes-main>
+</app-list-div>
+=======
+  <app-reorganizes-main>
+    <div class="flex flex-col items-start justify-center w-full gap-y-10">
+      <app-titles text="Visualização do Calendário"></app-titles>
+        <app-btn-down class="bg-[#FBB03B] font-bold text-white rounded font-[varela round] px-4 py-2 flex justify-center items-center hover:bg-opacity-70">Criar Evento</app-btn-down>
+      <nz-calendar
+        [(ngModel)]="date"
+        [(nzMode)]="mode"
+        (nzPanelChange)="panelChange($event)"
+        class="w-full"
+      ></nz-calendar>
+    </div>
+  </app-reorganizes-main>
+</app-list-div>
+>>>>>>> d31fb55e6f2398ff951fac8a756b336afad13db0
+>>>>>>> 6060a00d25dcf0651d9fe27cada8cbbb508d5e41

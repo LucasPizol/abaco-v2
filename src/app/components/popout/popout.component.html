@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+<button nz-button nzType="primary" (click)="showModal()">
+  <span>Show Modal</span>
+</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Modal Title" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading">
+  <p *nzModalContent>Test</p>
+</nz-modal>
+=======
+
+    <button nz-button nzType="primary" (click)="showModal()">
+      <span>Show Modal</span>
+    </button>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="Modal Title"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+      [nzOkLoading]="isOkLoading"
+    >
+      <p *nzModalContent>Modal Content</p>
+    </nz-modal>
+  
+>>>>>>> d31fb55e6f2398ff951fac8a756b336afad13db0
