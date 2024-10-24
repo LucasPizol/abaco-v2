@@ -1,24 +1,9 @@
-<<<<<<< HEAD
-<button nz-button nzType="primary" (click)="showModal()">
-  <span>Show Modal</span>
+<button (click)="showModal()"
+class= "bg-[#FBB03B] rounded font-[varela round] text-white text-lg w-[150px] h-[40px]
+        flex justify-center items-center hover:bg-opacity-70">
+  <span>Criar Evento</span>
 </button>
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Modal Title" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Criar Evento" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
   [nzOkLoading]="isOkLoading">
   <p *nzModalContent>Test</p>
 </nz-modal>
-=======
-
-    <button nz-button nzType="primary" (click)="showModal()">
-      <span>Show Modal</span>
-    </button>
-    <nz-modal
-      [(nzVisible)]="isVisible"
-      nzTitle="Modal Title"
-      (nzOnCancel)="handleCancel()"
-      (nzOnOk)="handleOk()"
-      [nzOkLoading]="isOkLoading"
-    >
-      <p *nzModalContent>Modal Content</p>
-    </nz-modal>
-  
->>>>>>> d31fb55e6f2398ff951fac8a756b336afad13db0

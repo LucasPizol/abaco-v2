@@ -6,20 +6,30 @@
         <app-sub-text text="Dados Pessoais"></app-sub-text>
     </app-reorganizes-main>
     <app-reorganize-input>
-        <app-inputs  placeholder="Nome Completo" className="h-32 w-72"></app-inputs>
-        <app-select-short placeholder="Gênero"></app-select-short>
+        <app-inputs placeholder="Nome Completo" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
+        <select placeholder="Selecione seu Gênero" class="h-[40px] w-[280px] text-12 px-4">
+            <option selected value="Genero">Selecione seu Gênero</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Outro">Outro</option>
+          </select>
     </app-reorganize-input>
     <app-reorganize-input>
-        <app-inputs type="Number" value="RG" placeholder="RG" ></app-inputs>
-        <app-inputs type="Number" value="CPF" placeholder="CPF"></app-inputs>
+        <app-inputs type="Number" value="RG" placeholder="RG" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
+        <app-inputs type="Number" value="CPF" placeholder="CPF" className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
     </app-reorganize-input>
     <app-reorganize-input>
-        <app-inputs placeholder="Nível de Escolaridade"></app-inputs>
-        <app-inputs placeholder="Data de Nascimento"></app-inputs>
+        <select placeholder="Nível de Escolaridade" class="h-[40px] w-[320px] text-12 px-4">
+            <option selected value="Genero">Nível de Escolaridade</option>
+            <option value="Fundamental">Fundamental Completo</option>
+            <option value="Médio">Médio Completo</option>
+            <option value="Superior">Superior Completo</option>
+          </select>
+        <app-inputs placeholder="Data de Nascimento" className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
     </app-reorganize-input>
     <app-reorganize-input>
-        <app-inputs type="Email" placeholder="Email"></app-inputs>
-        <app-inputs type="Number" placeholder="Telefone"></app-inputs>
+        <app-inputs type="Email" placeholder="Email" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
+        <app-inputs type="Number" placeholder="Telefone" className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
     </app-reorganize-input>
     <app-btn-down text="Continuar" route="/cadastroendereco"></app-btn-down>
 </app-list-div>
