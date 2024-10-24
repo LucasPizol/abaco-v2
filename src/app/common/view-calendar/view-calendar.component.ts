@@ -4,7 +4,11 @@ import { ReorganizesMainComponent } from '../../components/reorganizes-main/reor
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { NzCalendarComponent, NzCalendarMode } from 'ng-zorro-antd/calendar';
+<<<<<<< HEAD
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
+=======
+import { BtnDownComponent } from "../../components/buttons/btn-down/btn-down.component";
+>>>>>>> d31fb55e6f2398ff951fac8a756b336afad13db0
 
 @Component({
   selector: 'app-view-calendar',
