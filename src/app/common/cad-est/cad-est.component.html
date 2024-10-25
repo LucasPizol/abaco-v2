@@ -7,8 +7,8 @@
     </app-reorganizes-main>
     <app-reorganize-input>
         <app-inputs placeholder="Nome Completo" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
-        <select placeholder="Selecione seu Gênero" class="h-[40px] w-[280px] text-12 px-4">
-            <option selected value="Genero">Selecione seu Gênero</option>
+        <select required class="h-[40px] w-[280px] text-12 px-4">
+            <option disabled selected value="">Selecione seu Gênero</option>
             <option value="Feminino">Feminino</option>
             <option value="Masculino">Masculino</option>
             <option value="Outro">Outro</option>
@@ -19,8 +19,8 @@
         <app-inputs type="Number" value="CPF" placeholder="CPF" className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
     </app-reorganize-input>
     <app-reorganize-input>
-        <select placeholder="Nível de Escolaridade" class="h-[40px] w-[320px] text-12 px-4">
-            <option selected value="Genero">Nível de Escolaridade</option>
+        <select required placeholder="Nível de Escolaridade" class="h-[40px] w-[320px] text-12 px-4">
+            <option disabled selected value="">Nível de Escolaridade</option>
             <option value="Fundamental">Fundamental Completo</option>
             <option value="Médio">Médio Completo</option>
             <option value="Superior">Superior Completo</option>
