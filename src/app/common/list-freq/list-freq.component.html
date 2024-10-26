@@ -8,29 +8,28 @@
     </app-reorganize-input>
     <app-reorganizes-main>
         <div style="height: 300px; overflow-y: auto; width: 800px;">
-            <table class="bg-[#FFFFFF] rounded" cellSpacing="2" cellPadding="8" style="width: 100%; text-align:left">
-                <tr class="p-2">
-                    <th class="text-[13px]">Registro Acadêmico</th>
-                    <th class="text-[13px]">Nome Completo</th>
-                    <th class="text-[13px]">Faltas Totais</th>
-                    <th class="text-[13px]">Situação</th>
-                    <th class="text-[13px]"></th>
-                <tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td class="text-[14px]">0</td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td><app-img-view></app-img-view></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana</td>
-                    <td class="text-[14px]">3</td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td><app-img-view></app-img-view></td>
-                </tr>
-            </table>
+            <app-table>
+                <app-tablerow>
+                   <app-table-header title="Registro academico"/>
+                    <app-table-header title="Nome Completo"/>
+                    <app-table-header title="Faltas Totais"/>
+                    <app-table-header title="Situação"/>
+                </app-tablerow>
+                <app-tablerow>
+                    <app-table-cell content="23001518"/>
+                    <app-table-cell content="Mariana"/>
+                    <app-table-cell content="0"/>
+                    <app-table-cell content="Matriculado"/>
+                    <app-table-cell><app-img-view></app-img-view></app-table-cell>
+                </app-tablerow>
+                <app-tablerow>
+                    <app-table-cell content="23001518"/>
+                    <app-table-cell content="Mariana"/>
+                    <app-table-cell content="3"/>
+                    <app-table-cell content="Matriculado"/>
+                    <app-table-cell><app-img-view></app-img-view></app-table-cell>
+                </app-tablerow>
+            </app-table>
         </div>
     </app-reorganizes-main>
 </app-list-div>

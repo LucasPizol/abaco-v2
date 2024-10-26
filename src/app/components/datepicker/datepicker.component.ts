@@ -1,13 +1,31 @@
-import { Component, Input } from '@angular/core';
-import { ImgCalendarComponent } from '../images/img-calendar/img-calendar.component';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { getISOWeek } from 'date-fns';
+import { en_US, NzI18nService, zh_CN } from 'ng-zorro-antd/i18n';
 
 @Component({
   selector: 'app-datepicker',
   standalone: true,
-  imports: [ImgCalendarComponent],
-  templateUrl: './datepicker.component.html'
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [NzDatePickerModule],
+  templateUrl: './datepicker.component.html',
 })
-export class DatePickerComponent {
-  @Input() placeholder: string = '';
-}                                                    
+export class DatepickerComponent {
+  date = null;
+  isEnglish = false;
+
+  constructor(private i18n: NzI18nService) {}
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
+
+  getWeek(result: Date): void {
+    console.log('week: ', getISOWeek(result));
+  }
+
+  changeLanguage(): void {
+    this.i18n.setLocale(this.isEnglish ? zh_CN : en_US);
+    this.isEnglish = !this.isEnglish;
+  }
+}

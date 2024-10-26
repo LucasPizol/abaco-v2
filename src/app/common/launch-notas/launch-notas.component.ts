@@ -8,15 +8,17 @@ import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { SelectShortComponent } from '../../components/select-short/select-short.component';
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
-import { DatePickerComponent} from '../../components/datepicker/datepicker.component';
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
+import { DatepickerComponent } from '../../components/datepicker/datepicker.component';
+
 
 
 @Component({
   selector: 'app-launch-notas',
   standalone: true,
   imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ListDivComponent, 
-    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent, DatePickerComponent, BtnDownComponent ],
+    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent,
+    BtnDownComponent, DatepickerComponent ],
   templateUrl: './launch-notas.component.html'
 })
 export class LaunchNotasComponent {

@@ -8,16 +8,17 @@ import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { SelectShortComponent } from '../../components/select-short/select-short.component';
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
-import { DatePickerComponent} from '../../components/datepicker/datepicker.component';
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
 import { CheckboxComponent } from "../../components/checkbox/checkbox.component";
+import { DatepickerComponent } from '../../components/datepicker/datepicker.component';
 
 
 @Component({
   selector: 'app-launch-faltas',
   standalone: true,
   imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ListDivComponent,
-    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent, DatePickerComponent, BtnDownComponent, CheckboxComponent],
+    ReorganizesMainComponent, TitlesComponent, SelectShortComponent, ReorganizeInputComponent, BtnDownComponent, 
+    CheckboxComponent, DatepickerComponent],
   templateUrl: './launch-faltas.component.html',
 })
 export class LaunchFaltasComponent {

@@ -1,6 +1,1 @@
-<div style="position: relative; width: 100%;">
-  <input [placeholder]="placeholder" class="font-[varela round] rounded-md text-md h-10 w-50 px-3"
-   style="width: 300px; text-align: left;">
-   <app-img-calendar style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></app-img-calendar>
-</div>
-
+    <nz-date-picker class="m-0-[9px]-[12px]" [(ngModel)]="date" (ngModelChange)="onChange($any($event))"></nz-date-picker>

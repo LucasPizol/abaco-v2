@@ -8,13 +8,17 @@ import { ReorganizesMainComponent } from "../../components/reorganizes-main/reor
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { ReorganizeDivCardComponent } from '../../components/reorganize-div-card/reorganize-div-card.component';
+import { TableComponent } from "../../components/table/table.component";
+import { TablerowComponent } from "../../components/table/tablerow/tablerow.component";
+import { TableHeaderComponent } from "../../components/table/table-header/table-header.component";
+import { TableCellComponent } from "../../components/table/table-cell/table-cell.component";
 
 
 @Component({
   selector: 'app-list-aula',
   standalone: true,
-  imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ImgDeleteComponent, ListDivComponent, 
-    ReorganizesMainComponent, TitlesComponent, ReorganizeDivCardComponent],
+  imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ImgDeleteComponent, ListDivComponent,
+    ReorganizesMainComponent, TitlesComponent, ReorganizeDivCardComponent, TableComponent, TablerowComponent, TableHeaderComponent, TableCellComponent],
   templateUrl: './list-aula.component.html'
 })
 export class ListAulaComponent {

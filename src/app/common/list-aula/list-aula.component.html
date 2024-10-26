@@ -11,18 +11,18 @@
     </app-reorganize-div-card>
     <app-reorganizes-main>
         <div style="height: 300px; overflow-y: auto; width: 800px;">
-            <table class="bg-[#FFFFFF] rounded" cellSpacing="2" cellPadding="8" style="width: 100%; text-align:left">
-                <tr class="p-2">
-                    <th class="text-[13px]">Nome da Aula</th>
-                    <th class="text-[13px]">Data</th>
-                    <th class="text-[13px]"></th>
-                <tr>
-                <tr>
-                    <td class="text-[14px]">Introdução ao Curso</td>
-                    <td class="text-[14px]">26/10/2024</td>
-                    <td class="flex flex-row gap-4"><app-img-edit></app-img-edit><app-img-delete></app-img-delete></td>
-                </tr>
-            </table>
+            <app-table>
+                <app-tablerow>
+                    <app-table-header title="Nome da Aula"/>
+                    <app-table-header title="Data"/>
+                    <app-table-header title=""/>
+                </app-tablerow>
+                <app-tablerow>
+                    <app-table-cell content="Introdução ao Curso"></app-table-cell>
+                    <app-table-cell content="26/10/2024"></app-table-cell>
+                    <app-table-cell className="flex flex-row gap-4"><app-img-edit></app-img-edit><app-img-delete></app-img-delete></app-table-cell>
+                </app-tablerow>
+            </app-table>
         </div>
     </app-reorganizes-main>
 </app-list-div>
