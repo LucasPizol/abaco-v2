@@ -1,9 +1,22 @@
-<button (click)="showModal()"
-class= "bg-[#FBB03B] rounded font-[varela round] text-white text-lg w-[150px] h-[40px]
+<button (click)="showModal()" class="bg-[#FBB03B] rounded font-[varela round] text-white text-lg w-[150px] h-[40px]
         flex justify-center items-center hover:bg-opacity-70">
   <span>Criar Evento</span>
 </button>
 <nz-modal [(nzVisible)]="isVisible" nzTitle="Criar Evento" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
   [nzOkLoading]="isOkLoading">
-  <p *nzModalContent>Test</p>
+  <ng-container *nzModalContent>
+    <div class="flex flex-col ">
+      <label>Nome do Evento</label>
+      <app-inputs className="w-full border rounded-md h-[33px]" type="text"/>
+      <label>Data</label>
+      <app-inputs className="w-full border h-[53px]" type="Date"/>
+      <label>Descrição do Evento</label>
+      <app-inputs className="w-full border h-[63px]" type="text"/>
+      <label>Convidados</label>
+      <app-inputs className="w-full border h-[33px]" type="text"/>
+      <label>Localização</label>
+      <app-inputs className="w-full border h-[33px]" type="text"/>
+      <app-btn-down text="Criar Evento" className="w-full"/>
+    </div>
+  </ng-container>
 </nz-modal>

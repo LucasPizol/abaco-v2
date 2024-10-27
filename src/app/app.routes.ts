@@ -33,6 +33,7 @@ export const routes: Routes = [
     path: 'listestudante',
     loadComponent: () => import('./pages/listEstudante/listEstudante.component').then(m => m.ListEstudanteComponent)
   },  
+    //não funciona pra baixo
   {
     path: 'listdocente',
     loadComponent: () => import('./pages/listDocente/listDocente.component').then(m => m.ListDocenteComponent)
@@ -43,11 +44,8 @@ export const routes: Routes = [
   },
   {
     path: 'listfrequencia',
-    loadComponent: () => import('./pages/listFrequencia/listFrequencia.component').then(m => m.ListFrequenciaComponent)
-  },
-  {
-    path: 'calendario',
-    loadComponent: () => import('./pages/calendario/calendario.component').then(m => m.CalendarioComponent)
+    loadComponent: () => import('./pages/listFrequencia/listFrequencia.component').then(m => m.ListFrequenciaComponent),
+
   },
   {
     path: '**',

@@ -12,7 +12,6 @@ import { ViewCalendarComponent } from '../../common/view-calendar/view-calendar.
   imports: [RouterModule, AsideComponent, ReorganizesMainComponent, ReorganizesDivComponent, MainDivComponent,
     ViewCalendarComponent],
   templateUrl: './calendario.component.html',
-  styleUrl: './calendario.component.css'
 })
 export class CalendarioComponent {
 

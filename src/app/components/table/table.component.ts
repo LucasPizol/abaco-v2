@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './table.component.html',
 })
 export class TableComponent {
-
+  @Input() spacing: String = "";
+  @Input() paddingCell: String = "";
 }

@@ -7,13 +7,17 @@ import { ImgDeleteComponent } from "../../components/images/img-delete/img-delet
 import { ReorganizesMainComponent } from "../../components/reorganizes-main/reorganizes-main.component";
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
+import { TableComponent } from "../../components/table/table.component";
+import { TablerowComponent } from "../../components/table/tablerow/tablerow.component";
+import { TableHeaderComponent } from "../../components/table/table-header/table-header.component";
+import { TableCellComponent } from "../../components/table/table-cell/table-cell.component";
 
 
 @Component({
   selector: 'app-list-doc',
   standalone: true,
-  imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ImgDeleteComponent, ListDivComponent, 
-    ReorganizesMainComponent, TitlesComponent],
+  imports: [AsideComponent, PesquisaComponent, ListBgComponent, ImgEditComponent, ImgDeleteComponent, ListDivComponent,
+    ReorganizesMainComponent, TitlesComponent, TableComponent, TablerowComponent, TableHeaderComponent, TableCellComponent],
   templateUrl: './list-doc.component.html'
 })
 export class ListDocComponent {

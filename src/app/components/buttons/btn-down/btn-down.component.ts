@@ -11,4 +11,5 @@ import { RouterModule } from '@angular/router';
 export class BtnDownComponent {
   @Input() text: string = '';
   @Input() route: string = '';
+  @Input() className: string = '';
 }
