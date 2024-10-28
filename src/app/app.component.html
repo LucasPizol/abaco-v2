@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<div class="flex">
+  <app-aside *ngIf="showAside()" />
+
+  <div class="flex-1">
+    <router-outlet />
+  </div>
+</div>

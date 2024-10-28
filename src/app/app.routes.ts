@@ -1,58 +1,91 @@
-import { Routes } from '@angular/router';
+import { Router, Routes } from '@angular/router';
+import { UsuarioAutenticadoGuard } from './services/guards/usuario-autenticado.guard';
+import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autenticado.guard';
+import { TeacherComponent } from './pages/teacher/teacher.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthenticationService } from './api/services/authentication.service';
+import { CadastroEstudanteComponent } from './pages/cadastroEstudante/cadastroEstudante.component';
+import { CadastroEnderecoComponent } from './pages/cadastroEndereco/cadastroEndereco.component';
+import { LancarNotaComponent } from './pages/lancarNota/lancarNota.component';
+import { LancarFaltaComponent } from './pages/lancarFalta/lancarFalta.component';
+import { ListEstudanteComponent } from './pages/listEstudante/listEstudante.component';
+import { ListDocenteComponent } from './pages/listDocente/listDocente.component';
+import { ListAulasComponent } from './pages/listAulas/listAulas.component';
+import { ListFrequenciaComponent } from './pages/listFrequencia/listFrequencia.component';
+import { CalendarioComponent } from './pages/calendario/calendario.component';
+import { CriarAulaComponent } from './pages/criarAula/criarAula.component';
 
 export const routes: Routes = [
   {
-    path: 'teacher',
-    loadComponent: () => import('./pages/teacher/teacher.component').then(m => m.TeacherComponent),
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+    providers: [AuthenticationService, Router],
   },
   {
-    path: 'login',
-    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
+    path: 'teacher',
+    component: TeacherComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'calendario',
-    loadComponent: () => import('./pages/calendario/calendario.component').then(m => m.CalendarioComponent)
+    component: CalendarioComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'cadastroestudante',
-    loadComponent: () => import('./pages/cadastroEstudante/cadastroEstudante.component').then(m => m.CadastroEstudanteComponent)
+    component: CadastroEstudanteComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'cadastroendereco',
-    loadComponent: () => import('./pages/cadastroEndereco/cadastroEndereco.component').then(m => m.CadastroEnderecoComponent)
+    component: CadastroEnderecoComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'criaraula',
-    loadComponent: () => import('./pages/criarAula/criarAula.component').then(m => m.CriarAulaComponent)
+    component: CriarAulaComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'lancarnotas',
-    loadComponent: () => import('./pages/lancarNota/lancarNota.component').then(m => m.LancarNotaComponent)
+    component: LancarNotaComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'lancarfaltas',
-    loadComponent: () => import('./pages/lancarFalta/lancarFalta.component').then(m => m.LancarFaltaComponent)
+    component: LancarFaltaComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
   },
   {
     path: 'listestudante',
-    loadComponent: () => import('./pages/listEstudante/listEstudante.component').then(m => m.ListEstudanteComponent)
-  },  
+    component: ListEstudanteComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    providers: [AuthenticationService],
+  },
+  //não funciona pra baixo
   {
     path: 'listdocente',
-    loadComponent: () => import('./pages/listDocente/listDocente.component').then(m => m.ListDocenteComponent)
+    component: ListDocenteComponent,
   },
   {
     path: 'listaulas',
-    loadComponent: () => import('./pages/listAulas/listAulas.component').then(m => m.ListAulasComponent)
+    component: ListAulasComponent,
   },
   {
     path: 'listfrequencia',
-    loadComponent: () => import('./pages/listFrequencia/listFrequencia.component').then(m => m.ListFrequenciaComponent),
-
+    component: ListFrequenciaComponent,
   },
   {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full',
   },
-]
+];
