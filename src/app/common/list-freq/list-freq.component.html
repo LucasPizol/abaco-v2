@@ -4,13 +4,15 @@
     </app-reorganizes-main>
     <app-reorganize-input>
         <app-pesquisa></app-pesquisa>
-        <app-select-short  type="Curso" placeholder="Selecione o Curso"></app-select-short >
+        <select required placeholder="Curso" class=" rounded h-[40px] w-[300px] text-12 px-2">
+            <option disabled selected value="">Selecione o Curso</option>
+        </select>
     </app-reorganize-input>
     <app-reorganizes-main>
         <div style="height: 300px; overflow-y: auto; width: 800px;">
             <app-table>
                 <app-tablerow>
-                   <app-table-header title="Registro academico"/>
+                   <app-table-header title="Registro Acadêmico"/>
                     <app-table-header title="Nome Completo"/>
                     <app-table-header title="Faltas Totais"/>
                     <app-table-header title="Situação"/>

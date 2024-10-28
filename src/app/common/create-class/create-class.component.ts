@@ -4,14 +4,15 @@ import { ReorganizeInputComponent } from '../../components/reorganize-input/reor
 import { ReorganizesMainComponent } from '../../components/reorganizes-main/reorganizes-main.component';
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
-import { SelectShortComponent } from '../../components/select-short/select-short.component';
+import { InputsComponent } from '../../components/inputs/inputs.component';
+import { UploadComponent } from '../../components/upload/upload.component';
 
 
 @Component({
   selector: 'app-create-class',
   standalone: true,
   imports: [ListDivComponent, ReorganizeInputComponent, ReorganizesMainComponent, TitlesComponent,
-    BtnDownComponent, SelectShortComponent],
+    BtnDownComponent, InputsComponent, UploadComponent],
   templateUrl: './create-class.component.html',
 
 })

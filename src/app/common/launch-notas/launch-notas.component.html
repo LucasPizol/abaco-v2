@@ -5,16 +5,15 @@
     <app-reorganize-input>
         <select required placeholder="Curso" class=" rounded h-[40px] w-[300px] text-12 px-2">
             <option disabled selected value="">Selecione o Curso</option>
-          </select>
-          <select required placeholder="Módulo" class=" rounded h-[40px] w-[300px] text-12 px-2">
+        </select>
+        <select required placeholder="Módulo" class=" rounded h-[40px] w-[300px] text-12 px-2">
             <option disabled selected value="">Selecione o Módulo</option>
-          </select>
+        </select>
     </app-reorganize-input>
     <app-reorganizes-main>
         <app-reorganize-input>
-            <app-datepicker></app-datepicker>
-            <input placeholder="Descrição" class="font-[varela round] rounded-md text-md h-10 w-50 px-3"
-                style="width: 300px; text-align: left;">
+            <app-inputs className="rounded h-[40px] w-[300px] text-12 px-2" type="Date" />
+            <app-inputs type="string" placeholder="Descrição" className="h-[40px] w-[300px] text-12 px-4" />
         </app-reorganize-input>
     </app-reorganizes-main>
     <app-reorganizes-main>
@@ -123,7 +122,7 @@
                     <td class="text-[14px]">Matriculado</td>
                     <td class="text-[14px]"><app-img-edit></app-img-edit></td>
                 </tr>
-                                <tr>
+                <tr>
                     <td class="text-[14px]">23001518</td>
                     <td class="text-[14px]">Mariana</td>
                     <td class="text-[14px]"><input visible type=number step="0.1"
@@ -134,7 +133,7 @@
             </table>
         </div>
     </app-reorganizes-main>
-    <app-reorganize-input class="flex align-right">
+    <app-reorganize-input>
         <app-btn-down text="Salvar" route="/teacher"></app-btn-down>
     </app-reorganize-input>
 </app-list-div>

@@ -22,6 +22,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/cadastroEndereco/cadastroEndereco.component').then(m => m.CadastroEnderecoComponent)
   },
   {
+    path: 'criaraula',
+    loadComponent: () => import('./pages/criarAula/criarAula.component').then(m => m.CriarAulaComponent)
+  },
+  {
     path: 'lancarnotas',
     loadComponent: () => import('./pages/lancarNota/lancarNota.component').then(m => m.LancarNotaComponent)
   },
@@ -33,7 +37,6 @@ export const routes: Routes = [
     path: 'listestudante',
     loadComponent: () => import('./pages/listEstudante/listEstudante.component').then(m => m.ListEstudanteComponent)
   },  
-    //não funciona pra baixo
   {
     path: 'listdocente',
     loadComponent: () => import('./pages/listDocente/listDocente.component').then(m => m.ListDocenteComponent)

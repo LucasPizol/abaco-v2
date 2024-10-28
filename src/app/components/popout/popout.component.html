@@ -5,18 +5,17 @@
 <nz-modal [(nzVisible)]="isVisible" nzTitle="Criar Evento" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
   [nzOkLoading]="isOkLoading">
   <ng-container *nzModalContent>
-    <div class="flex flex-col ">
-      <label>Nome do Evento</label>
+    <div class="flex flex-col gap-y-2 ">
+      <label class="font-bold text-xs">Nome do Evento</label>
       <app-inputs className="w-full border rounded-md h-[33px]" type="text"/>
-      <label>Data</label>
+      <label class="font-bold text-xs">Data</label>
       <app-inputs className="w-full border h-[53px]" type="Date"/>
-      <label>Descrição do Evento</label>
+      <label class="font-bold text-xs">Descrição do Evento</label>
       <app-inputs className="w-full border h-[63px]" type="text"/>
-      <label>Convidados</label>
+      <label class="font-bold text-xs">Convidados</label>
       <app-inputs className="w-full border h-[33px]" type="text"/>
-      <label>Localização</label>
+      <label class="font-bold text-xs">Localização</label>
       <app-inputs className="w-full border h-[33px]" type="text"/>
-      <app-btn-down text="Criar Evento" className="w-full"/>
     </div>
   </ng-container>
 </nz-modal>

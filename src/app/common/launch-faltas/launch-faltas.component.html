@@ -3,12 +3,16 @@
         <app-titles text="Lançamento de Faltas"></app-titles>
     </app-reorganizes-main>
     <app-reorganize-input>
-        <app-select-short  type="Curso" placeholder="Selecione o Curso"></app-select-short >
-        <app-select-short  type="Modulo" placeholder="Selecione o Módulo"></app-select-short >
+        <select required placeholder="Curso" class=" rounded h-[40px] w-[300px] text-12 px-2">
+            <option disabled selected value="">Selecione o Curso</option>
+        </select>
+        <select required placeholder="Módulo" class=" rounded h-[40px] w-[300px] text-12 px-2">
+            <option disabled selected value="">Selecione o Módulo</option>
+            </select>
     </app-reorganize-input>
     <app-reorganizes-main>
         <app-reorganize-input>
-            <app-datepicker placeholder="Selecione a Data"></app-datepicker>
+            <app-inputs className="rounded h-[40px] w-[300px] text-12 px-2" type="Date" />
         </app-reorganize-input>
     </app-reorganizes-main>
     <app-reorganizes-main>

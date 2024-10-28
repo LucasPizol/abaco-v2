@@ -5,8 +5,6 @@ import { ReorganizesMainComponent } from '../../components/reorganizes-main/reor
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { SubTextComponent } from '../../components/sub-text/sub-text.component';
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
-import { SelectShortComponent } from '../../components/select-short/select-short.component';
-import { SelectLongComponent } from '../../components/select-long/select-long.component';
 import { InputsComponent } from '../../components/inputs/inputs.component';
 
 
@@ -14,7 +12,7 @@ import { InputsComponent } from '../../components/inputs/inputs.component';
   selector: 'app-cad-end',
   standalone: true,
   imports: [ListDivComponent, ReorganizeInputComponent, ReorganizesMainComponent, TitlesComponent, SubTextComponent,
-    BtnDownComponent, SelectShortComponent, SelectLongComponent, InputsComponent],
+    BtnDownComponent, InputsComponent],
   templateUrl: './cad-end.component.html',
 })
 export class CadEndComponent {
