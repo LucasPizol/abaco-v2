@@ -7,10 +7,6 @@ import { ReorganizesMainComponent } from '../../components/reorganizes-main/reor
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { TableComponent } from '../../components/table/table.component';
-import { TablerowComponent } from '../../components/table/tablerow/tablerow.component';
-import { TableHeaderComponent } from '../../components/table/table-header/table-header.component';
-import { TableCellComponent } from '../../components/table/table-cell/table-cell.component';
-import { TableBodyComponent } from '../../components/table/table-body/table-body.component';
 
 @Component({
   selector: 'app-list-doc',
@@ -24,10 +20,7 @@ import { TableBodyComponent } from '../../components/table/table-body/table-body
     ReorganizesMainComponent,
     TitlesComponent,
     TableComponent,
-    TablerowComponent,
-    TableHeaderComponent,
-    TableCellComponent,
-    TableBodyComponent,
+
   ],
   templateUrl: './list-doc.component.html',
 })

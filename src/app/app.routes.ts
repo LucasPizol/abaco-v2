@@ -68,9 +68,7 @@ export const routes: Routes = [
     path: 'listestudante',
     component: ListEstudanteComponent,
     canActivate: [UsuarioAutenticadoGuard],
-    providers: [AuthenticationService],
   },
-  //não funciona pra baixo
   {
     path: 'listdocente',
     component: ListDocenteComponent,

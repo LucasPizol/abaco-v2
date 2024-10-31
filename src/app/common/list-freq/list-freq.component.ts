@@ -9,9 +9,6 @@ import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
 import { ImgViewComponent } from '../../components/images/img-view/img-view.component';
 import { TableComponent } from '../../components/table/table.component';
-import { TablerowComponent } from '../../components/table/tablerow/tablerow.component';
-import { TableHeaderComponent } from '../../components/table/table-header/table-header.component';
-import { TableCellComponent } from '../../components/table/table-cell/table-cell.component';
 
 @Component({
   selector: 'app-list-freq',
@@ -27,9 +24,6 @@ import { TableCellComponent } from '../../components/table/table-cell/table-cell
     ReorganizeInputComponent,
     ImgViewComponent,
     TableComponent,
-    TablerowComponent,
-    TableHeaderComponent,
-    TableCellComponent,
   ],
   templateUrl: './list-freq.component.html',
 })

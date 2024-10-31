@@ -5,31 +5,11 @@
   <app-reorganize-div-card>
     <app-pesquisa></app-pesquisa>
     <button
-      class="font-bold text-white mx-[260px] p-6 bg-[#FBB03B] flex justify-center items-center text-md font-[varela round] rounded-md h-3 hover:bg-opacity-70"
-    >
+      class="font-bold text-white mx-[260px] p-6 bg-[#FBB03B] flex justify-center items-center text-md font-[varela round] rounded-md h-3 hover:bg-opacity-70">
       Criar Aula
     </button>
   </app-reorganize-div-card>
   <div>
-    <app-table>
-      <app-table-header>
-        <app-tablerow>
-          <app-table-header-cell>Nome da Aula</app-table-header-cell>
-          <app-table-header-cell>Data</app-table-header-cell>
-          <app-table-header-cell></app-table-header-cell>
-        </app-tablerow>
-      </app-table-header>
-
-      <app-table-body>
-        <app-tablerow>
-          <app-table-cell>Introdução ao Curso</app-table-cell>
-          <app-table-cell>26/10/2024</app-table-cell>
-          <app-table-cell class="flex flex-row gap-4">
-            <app-img-edit></app-img-edit>
-            <app-img-delete></app-img-delete>
-          </app-table-cell>
-        </app-tablerow>
-      </app-table-body>
-    </app-table>
+    <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"></app-table>
   </div>
 </app-list-div>

@@ -8,11 +8,6 @@ import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { ReorganizeDivCardComponent } from '../../components/reorganize-div-card/reorganize-div-card.component';
 import { TableComponent } from '../../components/table/table.component';
-import { TablerowComponent } from '../../components/table/tablerow/tablerow.component';
-import { TableHeaderComponent } from '../../components/table/table-header/table-header.component';
-import { TableHeaderCellComponent } from '../../components/table/table-header-cell/table-header-cell.component';
-import { TableCellComponent } from '../../components/table/table-cell/table-cell.component';
-import { TableBodyComponent } from '../../components/table/table-body/table-body.component';
 
 @Component({
   selector: 'app-list-aula',
@@ -27,12 +22,12 @@ import { TableBodyComponent } from '../../components/table/table-body/table-body
     TitlesComponent,
     ReorganizeDivCardComponent,
     TableComponent,
-    TablerowComponent,
-    TableHeaderComponent,
-    TableCellComponent,
-    TableHeaderCellComponent,
-    TableBodyComponent
   ],
   templateUrl: './list-aula.component.html',
 })
-export class ListAulaComponent {}
+export class ListAulaComponent {
+  headers = ['Nome da Aula', 'Data'];
+  data = [
+    { "Nome da Aula": 'Introdução ao curso', Data: '16 out. 2024' }
+  ];
+}
