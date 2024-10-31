@@ -2,8 +2,6 @@
     <app-titles text="Lista de Docentes"></app-titles>
     <app-pesquisa></app-pesquisa>
     <div class="flex h-full h-screen flex-col">
-        <app-table>
-
-        </app-table>
+        <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"></app-table>
     </div>
 </app-list-div>

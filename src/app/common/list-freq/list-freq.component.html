@@ -9,10 +9,15 @@
         </select>
     </app-reorganize-input>
     <app-reorganizes-main>
-        <div style="height: 300px; overflow-y: auto; width: 800px;">
-            <app-table>
-            
+        <div style="height: 300px; overflow-y: auto; width: 850px;">
+            <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"
+                [content]="[imgEditTemplate]">
             </app-table>
         </div>
     </app-reorganizes-main>
+    <ng-template #imgEditTemplate>
+        <div class="flex items-center space-x-2">
+            <app-img-view />
+        </div>
+    </ng-template>
 </app-list-div>

@@ -1,12 +1,20 @@
-<table class="bg-[#FFFFFF] rounded w-full text-left border-collapse " [attr.cellSpacing]="spacing" [attr.cellPadding]="paddingCell">
+<table class="bg-[#FFFFFF] rounded w-full text-left border-collapse" [attr.cellSpacing]="spacing"
+    [attr.cellPadding]="paddingCell">
     <thead>
         <tr>
             <th *ngFor="let header of headers">{{ header }}</th>
         </tr>
     </thead>
-    <tbody class="text-[14px] px-4 py-2 border-b text-left">
+    <tbody>
         <tr *ngFor="let item of data">
-            <td *ngFor="let header of headers" class="text-[14px] px-4 py-2 border-b text-left {{ className }}">{{ item[header] }}</td>
+            <td *ngFor="let header of headers" class="text-[14px] px-4 py-2 border-b text-left {{ className }}">
+                {{ item[header] }}
+            </td>
+            <td>
+                <ng-container *ngFor="let template of content">
+                    <ng-container *ngTemplateOutlet="template"></ng-container>
+                </ng-container>
+            </td>
         </tr>
     </tbody>
 </table>

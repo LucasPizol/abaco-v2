@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -13,4 +13,5 @@ export class TableComponent {
   @Input() headers: string[] = [];
   @Input() data: any[] = [];
   @Input() className: String = "";
+  @Input() content: TemplateRef<any>[] = [];
 }
