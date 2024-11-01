@@ -10,7 +10,7 @@ import { Component, Input, TemplateRef } from '@angular/core';
 export class TableComponent {
   @Input() spacing: String = "";
   @Input() paddingCell: String = "";
-  @Input() headers: string[] = [];
+  @Input() headers: {key:string, label: string}[] = [];
   @Input() data: any[] = [];
   @Input() className: String = "";
   @Input() content: TemplateRef<any>[] = [];

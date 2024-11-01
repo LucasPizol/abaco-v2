@@ -19,8 +19,8 @@ interface CommonResponse<T> {
 }
 
 class Api {
-  async get<T>(path: string): Promise<T> {
-    return (await ApiAxiosCreate.get<CommonResponse<T>>(path)).data.body;
+  async get<T>(path: string, params?: any): Promise<T> {
+    return (await ApiAxiosCreate.get<CommonResponse<T>>(path, {params})).data.body;
   }
 
   async post<T>(path: string, data: any) {

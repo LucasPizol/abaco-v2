@@ -7,7 +7,7 @@ import { ReorganizesMainComponent } from "../../components/reorganizes-main/reor
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { TableComponent } from "../../components/table/table.component";
-import { StudentService } from '../../services/studant/studant.services';
+import { StudentService } from '../../api/studant/studant.services';
 
 
 @Component({
@@ -18,11 +18,11 @@ import { StudentService } from '../../services/studant/studant.services';
   templateUrl: './list-est.component.html'
 })
 export class ListEstComponent {
-  headers = ['Registro Academico', 'Nome Completo', 'Email', 'Data Cadastro', 'Situação', ''];
+  headers = [{ key: 'id', label: 'Registro Academico' }, { key: 'nome', label: 'Nome Completo' },{key:'email' ,label:'Email'}, {key:'data_nascimento' ,label:'Data Cadastro'}, {key:'situacao' ,label:'Situação'}];
   data: any[] = [];
   imgEdit = '<app-img-edit></app-img-edit>';
 
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService) { }
 
   async ngOnInit() {
     await this.loadStudents();
@@ -30,7 +30,7 @@ export class ListEstComponent {
 
   async loadStudents() {
     try {
-      this.data = await this.studentService.getStudents(); 
+      this.data = await this.studentService.getStudents();
     } catch (error) {
       console.error('Erro ao carregar estudantes:', error);
     }
