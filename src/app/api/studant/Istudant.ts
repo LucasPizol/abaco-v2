@@ -6,7 +6,7 @@ export interface IStudentModel {
     cpf: string;
     rg?: string;
     genero: string;
-    data_nascimento: Date;
+    data_nascimento: string;
     escolaridade: number;
     situacao: string;
   }

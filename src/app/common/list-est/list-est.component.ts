@@ -8,6 +8,9 @@ import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { TableComponent } from '../../components/table/table.component';
 import { StudentService } from '../../api/studant/studant.services';
+import { IStudentModel } from '../../api/studant/Istudant';
+import { ITableHeader } from '../../interfaces/TableHeader';
+import { IPaginationRequest } from '../../interfaces/PaginationRequest';
 
 @Component({
   selector: 'app-list-est',
@@ -25,25 +28,29 @@ import { StudentService } from '../../api/studant/studant.services';
   templateUrl: './list-est.component.html',
 })
 export class ListEstComponent {
-  headers = [
+  headers: ITableHeader<IStudentModel> = [
     { key: 'id', label: 'Registro Academico' },
     { key: 'nome', label: 'Nome Completo' },
     { key: 'email', label: 'Email' },
     { key: 'data_nascimento', label: 'Data Cadastro' },
     { key: 'situacao', label: 'Situação' },
   ];
-  data: any[] = [];
+  data: IStudentModel[] = [];
   imgEdit = '<app-img-edit></app-img-edit>';
 
   constructor(private studentService: StudentService) {}
 
   async ngOnInit() {
-    await this.loadStudents();
+    await this.loadStudents({
+      page: 0,
+      pageSize: 10,
+      filters: {},
+    });
   }
 
-  async loadStudents() {
+  async loadStudents(request: IPaginationRequest<IStudentModel>) {
     try {
-      const { data } = await this.studentService.getStudents();
+      const { data } = await this.studentService.getStudents(request);
 
       this.data = data.map(({ data_nascimento, ...data }) => ({
         ...data,
