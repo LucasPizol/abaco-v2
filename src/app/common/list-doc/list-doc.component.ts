@@ -25,7 +25,7 @@ import { TableComponent } from '../../components/table/table.component';
   templateUrl: './list-doc.component.html',
 })
 export class ListDocComponent {
-  headers = ['Nome', 'Data', 'Situação'];
+  headers = [];
   data = [
     { Nome: 'Pedro', Data: '16 set. 2023', 'Situação': "Matriculado" }
   ];

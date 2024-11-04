@@ -26,7 +26,7 @@ import { TableComponent } from '../../components/table/table.component';
   templateUrl: './list-aula.component.html',
 })
 export class ListAulaComponent {
-  headers = ['Nome da Aula', 'Data'];
+  headers = [];
   data = [
     { "Nome da Aula": 'Introdução ao curso', Data: '16 out. 2024' }
   ];

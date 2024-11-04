@@ -6,13 +6,13 @@ import { IStudentModel } from './Istudant';
   providedIn: 'root',
 })
 export class StudentService {
+  constructor() {}
 
-  constructor() { }
-
-  async getStudents(): Promise<IStudentModel[]> {
+  async getStudents(): Promise<{ data: IStudentModel[] }> {
     try {
-      const response = await api.get<IStudentModel[]>('/estudantes', {
-        page: 0, pageSize: 10
+      const response = await api.get<{ data: IStudentModel[] }>('/estudantes', {
+        page: 0,
+        pageSize: 10,
       });
       return response;
     } catch (error) {

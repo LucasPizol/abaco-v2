@@ -24,7 +24,7 @@ import { TableComponent } from '../../components/table/table.component';
   templateUrl: './list-freq.component.html',
 })
 export class ListFreqComponent {
-  headers = ['Registro Academico', 'Nome Completo', 'Faltas Totais', 'Situação'];
+  headers = [];
   data = [
     {"Registro Academico": 23000102, "Nome Completo": 'WEverton1', "Faltas Totais": 0, Situação: 'Matriculado'},
     {"Registro Academico": 23000102, "Nome Completo": 'WEverton2', "Faltas Totais": 9, Situação: 'Matriculado'},
