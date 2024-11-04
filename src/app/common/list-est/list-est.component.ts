@@ -36,21 +36,25 @@ export class ListEstComponent {
     { key: 'situacao', label: 'Situação' },
   ];
   data: IStudentModel[] = [];
+  page = 0;
+  pageSize = 10;
+  filters = {};
+
   imgEdit = '<app-img-edit></app-img-edit>';
 
   constructor(private studentService: StudentService) {}
 
   async ngOnInit() {
-    await this.loadStudents({
-      page: 0,
-      pageSize: 10,
-      filters: {},
-    });
+    await this.loadStudents();
   }
 
-  async loadStudents(request: IPaginationRequest<IStudentModel>) {
+  async loadStudents() {
     try {
-      const { data } = await this.studentService.getStudents(request);
+      const { data } = await this.studentService.getStudents({
+        page: this.page,
+        pageSize: this.pageSize,
+        filters: this.filters,
+      });
 
       this.data = data.map(({ data_nascimento, ...data }) => ({
         ...data,
