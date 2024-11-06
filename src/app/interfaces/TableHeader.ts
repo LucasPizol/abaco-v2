@@ -1,1 +1,1 @@
-export type ITableHeader<T> = { key: keyof T; label: string }[];
+export type ITableHeader<T> = { key: keyof T | string; label: string }[];

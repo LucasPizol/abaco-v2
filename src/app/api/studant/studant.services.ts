@@ -10,7 +10,7 @@ import {
   providedIn: 'root',
 })
 export class StudentService {
-  constructor() {}
+  constructor() { }
 
   async getStudents(
     request: IPaginationRequest<IStudentModel>
