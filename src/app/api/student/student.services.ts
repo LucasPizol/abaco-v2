@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { api } from '../api';
-import { IStudentModel } from './Istudant';
+import { IStudentModel } from './Istudent';
 import {
   IPaginationRequest,
   IPaginationResponse,

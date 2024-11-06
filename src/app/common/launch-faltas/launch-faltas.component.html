@@ -16,81 +16,17 @@
         </app-reorganize-input>
     </app-reorganizes-main>
     <app-reorganizes-main>
-        <div style="height: 300px; overflow-y: auto; width: 800px;">
-            <table class="bg-[#FFFFFF] rounded" cellSpacing="2" cellPadding="8" style="width: 100%; text-align:left">
-                <tr class="p-2">
-                    <th class="text-[13px]">Registro Acadêmico</th>
-                    <th class="text-[13px]">Nome Completo</th>
-                    <th class="text-[13px]">Frequência</th>
-                    <th class="text-[13px]">Situação</th>
-                    <th class="text-[13px]"></th>
-                <tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-                <tr>
-                    <td class="text-[14px]">23001518</td>
-                    <td class="text-[14px]">Mariana Tessarini</td>
-                    <td><app-checkbox></app-checkbox></td>
-                    <td class="text-[14px]">Matriculado</td>
-                    <td class="text-[14px]"><app-img-edit></app-img-edit></td>
-                </tr>
-            </table>
+        <div style="height: 300px; overflow-y: auto; width: 850px;">
+            <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"
+                [content]="[imgEditTemplate]">
+            </app-table>
         </div>
     </app-reorganizes-main>
+    <ng-template #imgEditTemplate>
+        <div class="flex items-center space-x-2">
+            <app-img-edit></app-img-edit>
+        </div>
+    </ng-template>
     <app-reorganize-input class="flex align-right">
         <app-btn-down text="Salvar" route="/teacher"></app-btn-down>
     </app-reorganize-input>

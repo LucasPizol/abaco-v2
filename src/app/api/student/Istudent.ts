@@ -9,5 +9,6 @@ export interface IStudentModel {
     data_nascimento: string;
     escolaridade: number;
     situacao: string;
+    nota: number;
   }
   

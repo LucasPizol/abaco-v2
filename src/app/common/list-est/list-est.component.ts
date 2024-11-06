@@ -7,10 +7,9 @@ import { ReorganizesMainComponent } from '../../components/reorganizes-main/reor
 import { TitlesComponent } from '../../components/titles/titles.component';
 import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { TableComponent } from '../../components/table/table.component';
-import { StudentService } from '../../api/studant/studant.services';
-import { IStudentModel } from '../../api/studant/Istudant';
 import { ITableHeader } from '../../interfaces/TableHeader';
-import { IPaginationRequest } from '../../interfaces/PaginationRequest';
+import { IStudentModel } from '../../api/student/Istudent';
+import { StudentService } from '../../api/student/student.services';
 
 @Component({
   selector: 'app-list-est',

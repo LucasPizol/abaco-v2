@@ -9,11 +9,10 @@ import { ReorganizeInputComponent } from '../../components/reorganize-input/reor
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component';
 import { InputsComponent } from '../../components/inputs/inputs.component';
 import { ITableHeader } from '../../interfaces/TableHeader';
-import { IGradeModel } from '../../api/grade/IGrade';
 import { GradeService } from '../../api/grade/grade.service';
-import { response } from 'express';
 import { TableComponent } from "../../components/table/table.component";
 import { ImgDeleteComponent } from "../../components/images/img-delete/img-delete.component";
+import { IGradeModel } from '../../api/grade/IGrade';
 
 
 
@@ -27,12 +26,12 @@ import { ImgDeleteComponent } from "../../components/images/img-delete/img-delet
 })
 export class LaunchNotasComponent {
   headers: ITableHeader<IGradeModel> = [
-    { key: 'id', label: 'Registro Acadêmico' },
     { key: 'notas', label: 'Nome Completo' },
-    { key: 'studants.nome', label: 'Nome'},
-    { key: 'studants.email', label: 'Email' },
-    { key: 'studants.data_nascimento', label: 'Data de Nascimento' },
-    { key: 'studants.situacao', label: 'Situação' }
+    { key: 'alunos.id', label: 'Registro Acadêmico'},
+    { key: 'alunos.nome', label: 'Nome'},
+    { key: 'alunos.email', label: 'Email' },
+    { key: 'alunos.data_nascimento', label: 'Data de Nascimento' },
+    { key: 'alunos.situacao', label: 'Situação' }
   ];
   data: IGradeModel[] = [];
   page = 0;
