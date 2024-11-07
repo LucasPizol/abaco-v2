@@ -1,22 +1,20 @@
 <app-list-div>
-    <app-reorganizes-main>
-        <app-titles text="Lista de Estudantes"></app-titles>
-    </app-reorganizes-main>
-    <app-reorganizes-main>
-        <app-pesquisa></app-pesquisa>
-    </app-reorganizes-main>
-    <app-reorganizes-main>
-        <div style="height: 300px; overflow-y: auto; width: 850px;">
-            <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"
-                [content]="[imgEditTemplate]">
-            </app-table>
-        </div>
-    </app-reorganizes-main>
-    <ng-template #imgEditTemplate>
-        <div class="flex items-center space-x-2">
-            <app-img-edit></app-img-edit>
-            <app-img-delete></app-img-delete>
-        </div>
-    </ng-template>
-
+  <app-titles text="Lista de Estudantes"></app-titles>
+  <app-pesquisa></app-pesquisa>
+  <div style="height: 300px; overflow-y: auto; width: 850px">
+    <app-table
+      [spacing]="'2'"
+      [paddingCell]="'8'"
+      [headers]="headers"
+      [data]="data"
+      [content]="[imgEditTemplate]"
+    >
+    </app-table>
+  </div>
+  <ng-template #imgEditTemplate>
+    <div class="flex items-center space-x-2">
+      <app-img-edit></app-img-edit>
+      <app-img-delete></app-img-delete>
+    </div>
+  </ng-template>
 </app-list-div>

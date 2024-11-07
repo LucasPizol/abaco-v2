@@ -1,5 +1,31 @@
-<app-reorganizes-div>
-  <app-aside-div>
+<app-reorganizes-div
+  class="
+md:relative
+md:translate-x-0
+sm:fixed
+sm:-{{ getTranslate() }}
+duration-500
+"
+>
+  <app-aside-div class="relative">
+    <div
+      (click)="setHidden()"
+      class="
+      flex flex-col
+      gap-1
+      bg-blue
+      items-center
+      cursor-pointer
+      justify-center
+      bg-[#FBB03B]
+      p-2
+      absolute h-8 top-0 -right-8 rounded-tr-lg rounded-br-lg"
+    >
+      <span class="block h-1 bg-black rounded w-5"></span>
+      <span class="block h-1 bg-black rounded w-5"></span>
+      <span class="block h-1 bg-black rounded w-5"></span>
+    </div>
+
     <img
       src="/abaco-logo.png"
       alt="Logo Abaco"
@@ -39,6 +65,10 @@
         route="/listfrequencia"
       ></app-nav-link>
     </app-reorganizes-div>
-    <app-main-btn text="Usuário" route="/login" (click)="logout()"></app-main-btn>
+    <app-main-btn
+      text="Usuário"
+      route="/login"
+      (click)="logout()"
+    ></app-main-btn>
   </app-aside-div>
 </app-reorganizes-div>

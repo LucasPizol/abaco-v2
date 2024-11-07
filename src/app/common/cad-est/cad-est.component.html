@@ -1,35 +1,105 @@
 <app-list-div>
-    <app-titles text="Cadastro de Matrícula"></app-titles>
-    <app-sub-text text="Dados Pessoais"></app-sub-text>
+  <app-titles text="Cadastro de Matrícula"></app-titles>
+  <app-sub-text text="{{ getStateProps() }}"></app-sub-text>
 
-    <app-reorganize-input>
-        <app-inputs placeholder="Nome Completo" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
-        <select required class="h-[40px] w-[280px] text-12 px-4">
-            <option disabled selected value="">Selecione seu Gênero</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Outro">Outro</option>
-        </select>
-    </app-reorganize-input>
-    <app-reorganize-input>
-        <app-inputs type="Number" value="RG" placeholder="RG" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
-        <app-inputs type="Number" value="CPF" placeholder="CPF"
-            className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
-    </app-reorganize-input>
-    <app-reorganize-input>
-        <select required placeholder="Nível de Escolaridade" class="h-[40px] w-[320px] text-12 px-4">
-            <option disabled selected value="">Nível de Escolaridade</option>
-            <option value="Fundamental">Fundamental Completo</option>
-            <option value="Médio">Médio Completo</option>
-            <option value="Superior">Superior Completo</option>
-        </select>
-        <app-inputs placeholder="Data de Nascimento" className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
-    </app-reorganize-input>
-    <app-reorganize-input>
-        <app-inputs type="Email" placeholder="Email" className="h-[40px] w-[320px] text-12 px-4"></app-inputs>
-        <app-inputs type="Number" placeholder="Telefone" className="h-[40px] w-[280px] text-12 px-4"></app-inputs>
-    </app-reorganize-input>
-    <app-reorganize-input>
-        <app-btn-down text="Continuar" route="/cadastroendereco"></app-btn-down>
-    </app-reorganize-input>
+  <div
+    *ngIf="firstState()"
+    class="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
+  >
+    <app-inputs
+      class="w-full"
+      placeholder="Nome Completo"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <select required class="text-12 p-3 flex-1">
+      <option disabled selected value="">Selecione seu Gênero</option>
+      <option value="Feminino">Feminino</option>
+      <option value="Masculino">Masculino</option>
+      <option value="Outro">Outro</option>
+    </select>
+
+    <app-inputs
+      type="Number"
+      value="RG"
+      placeholder="RG"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      type="Number"
+      value="CPF"
+      placeholder="CPF"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+
+    <select
+      required
+      placeholder="Nível de Escolaridade"
+      class="text-12 p-3 flex-1"
+    >
+      <option disabled selected value="">Nível de Escolaridade</option>
+      <option value="Fundamental">Fundamental Completo</option>
+      <option value="Médio">Médio Completo</option>
+      <option value="Superior">Superior Completo</option>
+    </select>
+    <app-inputs
+      placeholder="Data de Nascimento"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      type="Email"
+      placeholder="Email"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      type="Number"
+      placeholder="Telefone"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+  </div>
+
+  <app-grid *ngIf="secondState()">
+    <app-inputs
+      type="Number"
+      value="CEP"
+      placeholder="CEP"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      placeholder="UF"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+
+    <select required placeholder="Zoneamento" class="flex-1 text-12 px-4">
+      <option disabled selected value="">Zoneamento</option>
+      <option value="Urbano">Urbano</option>
+      <option value="Rural">Rural</option>
+      <option value="Industrial">Industrial</option>
+    </select>
+    <app-inputs
+      placeholder="Município"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      placeholder="Logradouro"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      type="Number"
+      value="Número"
+      placeholder="Número"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      placeholder="Complemento"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+    <app-inputs
+      placeholder="Bairro"
+      className="text-12 p-3 flex-1 w-full"
+    ></app-inputs>
+  </app-grid>
+
+  <app-reorganize-input>
+    <app-button text="Continuar" (click)="handleNextState()"></app-button>
+  </app-reorganize-input>
 </app-list-div>

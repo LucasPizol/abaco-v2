@@ -24,6 +24,16 @@ import { AuthenticationService } from '../../api/services/authentication.service
   providers: [AuthenticationService],
 })
 export class AsideComponent {
+  hidden = true;
+
+  getTranslate() {
+    return this.hidden ? 'translate-x-full' : 'translate-x-0';
+  }
+
+  setHidden() {
+    this.hidden = !this.hidden;
+  }
+
   constructor(private readonly authenticationService: AuthenticationService) {}
 
   async logout(): Promise<void> {
