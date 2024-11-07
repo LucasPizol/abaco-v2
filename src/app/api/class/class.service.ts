@@ -1,21 +1,19 @@
 import { Injectable } from "@angular/core";
-import { IPaginationRequest, IPaginationResponse } from "../../interfaces/PaginationRequest";
 import { api } from "../api";
 import { IClassModel } from "./IClass";
 
 @Injectable({
     providedIn: 'root',
 })
-export class ClasssService {
+export class ClassService {
     constructor() { }
 
     async getClass(
-        request: IPaginationRequest<IClassModel>
-    ): Promise<{ data: IClassModel[] }> {
+        id: number,
+    ): Promise<IClassModel[]> {
         try {
-            const response = await api.get<IPaginationResponse<IClassModel>>(
-                '/aulas',
-                request
+            const response = await api.get<IClassModel[]>(
+                '/aulas/' + id,
             );
             return response;
         } catch (error) {

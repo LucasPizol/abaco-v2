@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { IPaginationRequest, IPaginationResponse } from "../../interfaces/PaginationRequest";
-import { IGradeModel } from "./IGrade";
 import { api } from "../api";
+import { IStudentModel } from "../student/Istudent";
 
 @Injectable({
     providedIn: 'root',
@@ -10,12 +9,11 @@ export class GradeService {
     constructor() { }
 
     async getGrades(
-        request: IPaginationRequest<IGradeModel>
-    ): Promise<{ data: IGradeModel[] }> {
+        id: number,
+    ): Promise<IStudentModel[]> {
         try {
-            const response = await api.get<IPaginationResponse<IGradeModel>>(
-                '/notas',
-                request
+            const response = await api.get<IStudentModel[]>(
+                '/estudantes/curso/'+ id,
             );
             return response;
         } catch (error) {

@@ -13,6 +13,7 @@ import { GradeService } from '../../api/grade/grade.service';
 import { TableComponent } from "../../components/table/table.component";
 import { ImgDeleteComponent } from "../../components/images/img-delete/img-delete.component";
 import { IGradeModel } from '../../api/grade/IGrade';
+import { IStudentModel } from '../../api/student/Istudent';
 
 
 
@@ -26,17 +27,14 @@ import { IGradeModel } from '../../api/grade/IGrade';
 })
 export class LaunchNotasComponent {
   headers: ITableHeader<IGradeModel> = [
-    { key: 'notas', label: 'Nome Completo' },
-    { key: 'alunos.id', label: 'Registro Acadêmico'},
-    { key: 'alunos.nome', label: 'Nome'},
-    { key: 'alunos.email', label: 'Email' },
-    { key: 'alunos.data_nascimento', label: 'Data de Nascimento' },
-    { key: 'alunos.situacao', label: 'Situação' }
+    { key: 'nome', label: 'Nome Completo' },
+    { key: 'id', label: 'Registro Acadêmico'},
+    { key: 'email', label: 'Email' },
+    { key: 'data_nascimento', label: 'Data de Nascimento' },
+    { key: 'situacao', label: 'Situação' },
+    { key: 'nota', label: 'Notas '}
   ];
-  data: IGradeModel[] = [];
-  page = 0;
-  pageSize = 10;
-  filters = {};
+  data: IStudentModel[] = [];
 
   imgEdit = '<app-img-edit></app-img-edit>';
 
@@ -48,12 +46,11 @@ export class LaunchNotasComponent {
 
   async loadGrades() {
     try {
-      const { data } = await this.gradeService.getGrades({
-        page: this.page,
-        pageSize: this.pageSize,
-        filters: this.filters,
-      });
-      this.data = data;
+      const data  = await this.gradeService.getGrades(2);
+      this.data = data.map(({ data_nascimento, ...data }) => ({
+        ...data,
+        data_nascimento: new Date(data_nascimento).toLocaleDateString('pt-br'),
+      }));
     } catch (error) {
       console.error('Erro ao carregar estudantes:', error);
     }

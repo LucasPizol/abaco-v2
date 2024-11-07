@@ -9,9 +9,8 @@ import { ListDivComponent } from '../../components/list-div/list-div.component';
 import { ReorganizeDivCardComponent } from '../../components/reorganize-div-card/reorganize-div-card.component';
 import { TableComponent } from '../../components/table/table.component';
 import { ITableHeader } from '../../interfaces/TableHeader';
-import { IAbsenceModel } from '../../api/absence/IAbsence';
 import { IClassModel } from '../../api/class/IClass';
-import { ClasssService } from '../../api/class/class.service';
+import { ClassService } from '../../api/class/class.service';
 
 @Component({
   selector: 'app-list-aula',
@@ -31,19 +30,14 @@ import { ClasssService } from '../../api/class/class.service';
 })
 export class ListAulaComponent {
   headers: ITableHeader<IClassModel> = [
-    { key: 'alunos.id', label: 'Registro Acadêmico' },
-    { key: 'alunos.nome', label: 'Nome' },
-    { key: 'frequencia', label: 'Frequencia' },
-    { key: 'alunos.situacao', label: 'Situação' },
+    { key: 'descricao', label: 'Nome da Aula' },
+    { key: 'aula', label: 'Data' }
   ];
   data: IClassModel[] = [];
-  page = 0;
-  pageSize = 10;
-  filters = {};
 
   imgEdit = '<app-img-edit></app-img-edit>';
 
-  constructor(private classService: ClasssService) { }
+  constructor(private classService: ClassService) { }
 
   async ngOnInit() {
     await this.loadClass();
@@ -51,12 +45,8 @@ export class ListAulaComponent {
 
   async loadClass() {
     try {
-      const { data } = await this.classService.getClass({
-        page: this.page,
-        pageSize: this.pageSize,
-        filters: this.filters,
-      });
-    this.data = data
+      const data = await this.classService.getClass(0);
+      this.data = data
     } catch (error) {
       console.error('Erro ao carregar faltas:', error);
     }
