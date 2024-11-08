@@ -27,6 +27,8 @@ export class AsideComponent {
   hidden = true;
 
   getTranslate() {
+
+    console.log(this.hidden)
     return this.hidden ? 'translate-x-full' : 'translate-x-0';
   }
 

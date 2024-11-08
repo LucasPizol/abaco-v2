@@ -1,12 +1,14 @@
 <div class="flex">
   <app-aside *ngIf="showAside()" />
 
-  <div class="flex-1 overflow-y-auto h-screen bg-[#F3F3F3]
-
-  sm:px-4 sm:py-4
-  md:px-8 sm:py-8
-  lg:px-14 lg:py-14"
+  <div
+    class="flex-1 overflow-y-auto h-screen bg-[#F3F3F3]
   
+  px-4 py-12
+  sm:{{ showAside() ? 'px-4 sm:py-4' : '' }}
+  md:{{ showAside() ? 'px-8 sm:py-8' : '' }}
+  lg:{{ showAside() ? 'px-14 lg:py-14' : '' }}
+  "
   >
     <div>
       <router-outlet />
