@@ -1,35 +1,43 @@
 <app-list-div>
-    <app-reorganizes-main>
-        <app-titles text="Lançamento de Notas"></app-titles>
-    </app-reorganizes-main>
-    <app-reorganize-input>
-        <select required placeholder="Curso" class=" rounded h-[40px] w-[300px] text-12 px-2">
-            <option disabled selected value="">Selecione o Curso</option>
-        </select>
-        <select required placeholder="Módulo" class=" rounded h-[40px] w-[300px] text-12 px-2">
-            <option disabled selected value="">Selecione o Módulo</option>
-        </select>
-    </app-reorganize-input>
-    <app-reorganizes-main>
-        <app-reorganize-input>
-            <app-inputs className="rounded h-[40px] w-[300px] text-12 px-2" type="Date" />
-            <app-inputs type="string" placeholder="Descrição" className="h-[40px] w-[300px] text-12 px-4" />
-        </app-reorganize-input>
-    </app-reorganizes-main>
-    <app-reorganizes-main>
-        <div style="height: 300px; overflow-y: auto; width: 850px;">
-            <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"
-                [content]="[imgEditTemplate]">
-            </app-table>
-        </div>
-    </app-reorganizes-main>
-    <ng-template #imgEditTemplate>
-        <div class="flex items-center space-x-2">
-            <app-img-edit></app-img-edit>
-            <app-img-delete></app-img-delete>
-        </div>
-    </ng-template>
-    <app-reorganize-input>
-        <app-btn-down text="Salvar" route="/teacher"></app-btn-down>
-    </app-reorganize-input>
+  <app-reorganizes-main>
+    <app-titles text="Lançamento de Notas"></app-titles>
+  </app-reorganizes-main>
+
+  <app-grid>
+    <select required placeholder="Curso" className="text-12 p-3 flex-1 w-full">
+      <option disabled selected value="">Selecione o Curso</option>
+    </select>
+    <select required placeholder="Módulo" class="text-12 p-3 flex-1 w-full">
+      <option disabled selected value="">Selecione o Módulo</option>
+    </select>
+  </app-grid>
+  <app-grid>
+    <app-inputs className="text-12 p-3 flex-1 w-full" type="date" />
+    <app-inputs
+      type="string"
+      placeholder="Descrição"
+      className="text-12 p-3 flex-1 w-full"
+    />
+  </app-grid>
+
+  <div style="height: 300px; overflow-y: auto; width: 850px">
+    <app-table
+      [spacing]="'2'"
+      [paddingCell]="'8'"
+      [headers]="headers"
+      [data]="data"
+      [content]="[imgEditTemplate]"
+    >
+    </app-table>
+  </div>
+
+  <ng-template #imgEditTemplate>
+    <div class="flex items-center space-x-2">
+      <app-img-edit></app-img-edit>
+      <app-img-delete></app-img-delete>
+    </div>
+  </ng-template>
+  <app-reorganize-input>
+    <app-btn-down text="Salvar" route="/teacher"></app-btn-down>
+  </app-reorganize-input>
 </app-list-div>
