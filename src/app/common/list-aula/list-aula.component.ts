@@ -44,7 +44,7 @@ export class ListAulaComponent {
       const data = await this.classService.getClass(1);
       this.data = data
     } catch (error) {
-      console.error('Erro ao carregar faltas:', error);
+      console.error('Erro ao carregar aulas:', error);
     }
   }
 }

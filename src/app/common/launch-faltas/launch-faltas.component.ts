@@ -36,8 +36,8 @@ import { GridComponent } from '../../components/grid/grid.component';
 })
 export class LaunchFaltasComponent {
   headers: ITableHeader<IAbsenceModel> = [
-    { key: 'studdants.id', label: 'Registro Acadêmico' },
-    { key: 'alunos.nome', label: 'Nome' },
+    { key: 'id', label: 'Registro Acadêmico' },
+    { key: 'nome', label: 'Nome Completo' },
     { key: 'frequencia', label: 'Frequencia' },
     { key: 'alunos.situacao', label: 'Situação' },
   ];
