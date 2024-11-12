@@ -10,10 +10,11 @@ import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.com
 import { CheckboxComponent } from '../../components/checkbox/checkbox.component';
 import { InputsComponent } from '../../components/inputs/inputs.component';
 import { TableComponent } from '../../components/table/table.component';
-import { ITableHeader } from '../../interfaces/TableHeader';
 import { IAbsenceModel } from '../../api/absence/IAbsence';
 import { AbsenceService } from '../../api/absence/absence.service';
 import { GridComponent } from '../../components/grid/grid.component';
+import { BreakpointService } from '../../services/breakpoint.service';
+import { BlankSlateComponent } from "../../components/blank-slate/blank-slate.component";
 
 @Component({
   selector: 'app-launch-faltas',
@@ -31,16 +32,10 @@ import { GridComponent } from '../../components/grid/grid.component';
     InputsComponent,
     TableComponent,
     GridComponent,
-  ],
+],
   templateUrl: './launch-faltas.component.html',
 })
 export class LaunchFaltasComponent {
-  headers: ITableHeader<IAbsenceModel> = [
-    { key: 'studdants.id', label: 'Registro Acadêmico' },
-    { key: 'alunos.nome', label: 'Nome' },
-    { key: 'frequencia', label: 'Frequencia' },
-    { key: 'alunos.situacao', label: 'Situação' },
-  ];
   data: IAbsenceModel[] = [];
   page = 0;
   pageSize = 10;
@@ -48,10 +43,33 @@ export class LaunchFaltasComponent {
 
   imgEdit = '<app-img-edit></app-img-edit>';
 
-  constructor(private absenceService: AbsenceService) {}
+  constructor(
+    private absenceService: AbsenceService,
+    private breakpointService: BreakpointService
+  ) {}
 
   async ngOnInit() {
     await this.loadAbsence();
+  }
+
+  headersByBreakpoint() {
+    const { xs } = this.breakpointService.breakpoint();
+
+    if (xs) {
+      return [
+        { key: 'id', label: 'RA', className: 'w-8' },
+        { key: 'alunos', label: 'Nome', className: 'w-1/3 text-center' },
+        { key: 'frequencia', label: 'Faltas', className: 'w-1/4 text-center' },
+        { key: 'alunos.situacao', label: 'Situação', className: 'w-1/3 text-center' },
+      ];
+    }
+
+    return [
+      { key: 'id', label: 'Registro Academico' },
+      { key: 'alunos', label: 'Nome Completo' },
+      { key: 'frequencia', label: 'Faltas Totais' },
+      { key: 'alunos.situacao', label: 'Situação' },
+    ];
   }
 
   async loadAbsence() {

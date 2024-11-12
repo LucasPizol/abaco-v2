@@ -10,6 +10,7 @@ import { TableComponent } from '../../components/table/table.component';
 import { ITableHeader } from '../../interfaces/TableHeader';
 import { IStudentModel } from '../../api/student/Istudent';
 import { StudentService } from '../../api/student/student.services';
+import { BreakpointService } from '../../services/breakpoint.service';
 
 @Component({
   selector: 'app-list-est',
@@ -41,10 +42,43 @@ export class ListEstComponent {
 
   imgEdit = '<app-img-edit></app-img-edit>';
 
-  constructor(private studentService: StudentService) {}
+  constructor(
+    private studentService: StudentService,
+    private breakpointService: BreakpointService
+  ) {}
 
   async ngOnInit() {
     await this.loadStudents();
+  }
+
+  headerByBreakpoint() {
+    const { xs } = this.breakpointService.breakpoint();
+
+    if (xs) {
+      return [
+        { key: 'id', label: 'RA', className: 'w-8' },
+        { key: 'nome', label: 'Nome', className: 'w-1/4 text-center' },
+        { key: 'email', label: 'Email', className: 'w-1/4 text-center' },
+        {
+          key: 'data_nascimento',
+          label: 'Data Cadastro',
+          className: 'w-1/4 text-center',
+        },
+        { key: 'situacao', label: 'Situação', className: 'w-1/4 text-center' },
+      ];
+    }
+
+    return [
+      { key: 'id', label: 'Registro Acadêmico', className: 'w-8' },
+      { key: 'nome', label: 'Nome Completo', className: 'w-1/4 text-center' },
+      { key: 'email', label: 'Email', className: 'w-1/4 text-center' },
+      {
+        key: 'data_nascimento',
+        label: 'Data Cadastro',
+        className: 'w-1/4 text-center',
+      },
+      { key: 'situacao', label: 'Situação', className: 'w-1/4 text-center' },
+    ];
   }
 
   async loadStudents() {
