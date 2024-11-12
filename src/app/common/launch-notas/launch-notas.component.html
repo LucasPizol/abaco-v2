@@ -2,39 +2,24 @@
   <app-reorganizes-main>
     <app-titles text="Lançamento de Notas"></app-titles>
   </app-reorganizes-main>
-
   <app-grid>
-    <select required placeholder="Curso" className="text-12 p-3 flex-1 w-full">
+    <select required placeholder="Curso" class="text-12 p-3 flex-1 w-full">
       <option disabled selected value="">Selecione o Curso</option>
     </select>
-    <select required placeholder="Módulo" class="text-12 p-3 flex-1 w-full">
-      <option disabled selected value="">Selecione o Módulo</option>
-    </select>
+    <app-inputs className="text-12 p-3 flex-1 w-full" type="date" />
   </app-grid>
   <app-grid>
-    <app-inputs className="text-12 p-3 flex-1 w-full" type="date" />
-    <app-inputs
-      type="string"
-      placeholder="Descrição"
-      className="text-12 p-3 flex-1 w-full"
-    />
+    <app-inputs type="string" placeholder="Descrição" className="text-12 p-3 flex-1 w-full" />
   </app-grid>
 
   <div style="height: 300px; overflow-y: auto; width: 850px">
-    <app-table
-      [spacing]="'2'"
-      [paddingCell]="'8'"
-      [headers]="headers"
-      [data]="data"
-      [content]="[imgEditTemplate]"
-    >
+    <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data" [content]="[imgEditTemplate]">
     </app-table>
   </div>
 
   <ng-template #imgEditTemplate>
     <div class="flex items-center space-x-2">
       <app-img-edit></app-img-edit>
-      <app-img-delete></app-img-delete>
     </div>
   </ng-template>
   <app-reorganize-input>

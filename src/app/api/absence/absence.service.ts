@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { IPaginationRequest, IPaginationResponse } from "../../interfaces/PaginationRequest";
 import { api } from "../api";
 import { IAbsenceModel } from "./IAbsence";
 
@@ -10,12 +9,11 @@ export class AbsenceService {
     constructor() { }
 
     async getAbsence(
-        request: IPaginationRequest<IAbsenceModel>
-    ): Promise<{ data: IAbsenceModel[] }> {
+        id: number
+    ): Promise<IAbsenceModel[]> {
         try {
-            const response = await api.get<IPaginationResponse<IAbsenceModel>>(
-                '/faltas',
-                request
+            const response = await api.get<IAbsenceModel[]>(
+                '/faltas/' + id,
             );
             return response;
         } catch (error) {

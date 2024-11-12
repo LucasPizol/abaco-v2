@@ -12,9 +12,11 @@ export class GradeService {
         id: number,
     ): Promise<IStudentModel[]> {
         try {
+            console.log("chgou")
             const response = await api.get<IStudentModel[]>(
-                '/estudantes/curso/'+ id,
+                '/estudantes/curso/' + id,
             );
+
             return response;
         } catch (error) {
             console.error('Erro ao buscar notas:', error);
