@@ -4,18 +4,14 @@
     <select required placeholder="Curso" class="text-12 p-3 flex-1 w-full">
       <option disabled selected value="">Selecione o Curso</option>
     </select>
-    <select required placeholder="Módulo" class="text-12 p-3 flex-1 w-full">
-      <option disabled selected value="">Selecione o Módulo</option>
-    </select>
-  </app-grid>
-  <app-grid>
     <app-inputs className="text-12 p-3 flex-1 w-full" type="date" />
   </app-grid>
-  <div style="height: 300px; overflow-y: auto; width: 850px">
+
+  <div style="height: 300px; overflow-y: auto">
     <app-table
       [spacing]="'2'"
       [paddingCell]="'8'"
-      [headers]="headers"
+      [headers]="headersByBreakpoint()"
       [data]="data"
       [content]="[imgEditTemplate]"
     >

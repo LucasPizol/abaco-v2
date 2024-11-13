@@ -31,8 +31,6 @@ export class ListAulaComponent {
   ];
   data: IClassModel[] = [];
 
-  imgEdit = '<app-img-edit></app-img-edit>';
-
   constructor(private classService: ClassService) { }
 
   async ngOnInit() {

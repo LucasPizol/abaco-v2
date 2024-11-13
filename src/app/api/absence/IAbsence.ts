@@ -8,3 +8,4 @@ export interface IAbsenceModel {
     alunos: IStudentModel;
     aula: IClassModel;
 }
+

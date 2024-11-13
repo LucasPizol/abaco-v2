@@ -9,8 +9,8 @@
         </select>
     </app-reorganize-input>
     <app-reorganizes-main>
-        <div style="height: 300px; overflow-y: auto; width: 850px;">
-            <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data"
+        <div style="height: 300px; overflow-y: auto">
+            <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headersByBreakpoint()" [data]="data"
                 [content]="[imgEditTemplate]">
             </app-table>
         </div>

@@ -1,20 +1,33 @@
-<table class="bg-[#FFFFFF] rounded w-full text-left border-collapse" [attr.cellSpacing]="spacing"
-    [attr.cellPadding]="paddingCell">
-    <thead>
-        <tr>
-            <th *ngFor="let header of headers">{{ header.label }}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of data">
-            <td *ngFor="let header of headers" class="text-[14px] px-4 py-2 border-b text-left {{ className }}">
-                {{ item[header.key] }}
-            </td>
-            <td>
-                <ng-container *ngFor="let template of content">
-                    <ng-container *ngTemplateOutlet="template"></ng-container>
-                </ng-container>
-            </td>
-        </tr>
-    </tbody>
+<table
+  class="bg-[#FFFFFF] rounded w-full text-left border-collapse"
+  [attr.cellSpacing]="spacing"
+  [attr.cellPadding]="paddingCell"
+>
+  <thead class="w-full">
+    <tr class="w-full">
+      <th *ngFor="let header of headers" class="{{ header.className }}">
+        {{ header.label }}
+      </th>
+    </tr>
+  </thead>
+  <tbody class="w-full">
+    <tr *ngFor="let item of data" class="w-full">
+      <td
+        *ngFor="let header of headers"
+        class="text-[14px] px-4 py-2 border-b text-left {{ className }} {{
+          header.className
+        }}"
+      >
+        {{ item[header.key] }}
+      </td>
+      <td>
+        <ng-container *ngFor="let template of content">
+          <ng-container *ngTemplateOutlet="template"></ng-container>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
 </table>
+<div *ngIf="data.length === 0">
+  <app-blank-slate />
+</div>

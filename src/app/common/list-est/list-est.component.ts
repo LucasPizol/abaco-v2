@@ -8,6 +8,7 @@ import { PesquisaComponent } from "../../components/pesquisa/pesquisa.component"
 import { TableComponent } from "../../components/table/table.component";
 import { ImgEditComponent } from "../../components/images/img-edit/img-edit.component";
 import { ImgDeleteComponent } from "../../components/images/img-delete/img-delete.component";
+import { BreakpointService } from '../../services/breakpoint.service';
 
 @Component({
   selector: 'app-list-est',
@@ -19,7 +20,7 @@ import { ImgDeleteComponent } from "../../components/images/img-delete/img-delet
     TableComponent,
     ImgEditComponent,
     ImgDeleteComponent
-],
+  ],
   templateUrl: './list-est.component.html',
 })
 export class ListEstComponent {
@@ -37,10 +38,43 @@ export class ListEstComponent {
 
   imgEdit = '<app-img-edit></app-img-edit>';
 
-  constructor(private studentService: StudentService) {}
+  constructor(
+    private studentService: StudentService,
+    private breakpointService: BreakpointService
+  ) { }
 
   async ngOnInit() {
     await this.loadStudents();
+  }
+
+  headerByBreakpoint() {
+    const { xs } = this.breakpointService.breakpoint();
+
+    if (xs) {
+      return [
+        { key: 'id', label: 'RA', className: 'w-8' },
+        { key: 'nome', label: 'Nome', className: 'w-1/4 text-center' },
+        { key: 'email', label: 'Email', className: 'w-1/4 text-center' },
+        {
+          key: 'data_nascimento',
+          label: 'Data Cadastro',
+          className: 'w-1/4 text-center',
+        },
+        { key: 'situacao', label: 'Situação', className: 'w-1/4 text-center' },
+      ];
+    }
+
+    return [
+      { key: 'id', label: 'Registro Acadêmico', className: 'w-8' },
+      { key: 'nome', label: 'Nome Completo', className: 'w-1/4 text-center' },
+      { key: 'email', label: 'Email', className: 'w-1/4 text-center' },
+      {
+        key: 'data_nascimento',
+        label: 'Data Cadastro',
+        className: 'w-1/4 text-center',
+      },
+      { key: 'situacao', label: 'Situação', className: 'w-1/4 text-center' },
+    ];
   }
 
   async loadStudents() {
