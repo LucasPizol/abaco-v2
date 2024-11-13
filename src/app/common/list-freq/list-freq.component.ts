@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
-import { PesquisaComponent } from '../../components/pesquisa/pesquisa.component';
-import { ReorganizesMainComponent } from '../../components/reorganizes-main/reorganizes-main.component';
-import { TitlesComponent } from '../../components/titles/titles.component';
-import { ListDivComponent } from '../../components/list-div/list-div.component';
-import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component';
-import { ImgViewComponent } from '../../components/images/img-view/img-view.component';
-import { TableComponent } from '../../components/table/table.component';
-import { IAbsenceModel } from '../../api/absence/IAbsence';
-import { AbsenceService } from '../../api/absence/absence.service';
-import { BreakpointService } from '../../services/breakpoint.service';
+import { Component } from '@angular/core'
+import { PesquisaComponent } from '../../components/pesquisa/pesquisa.component'
+import { ReorganizesMainComponent } from '../../components/reorganizes-main/reorganizes-main.component'
+import { TitlesComponent } from '../../components/titles/titles.component'
+import { ListDivComponent } from '../../components/list-div/list-div.component'
+import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component'
+import { ImgViewComponent } from '../../components/images/img-view/img-view.component'
+import { TableComponent } from '../../components/table/table.component'
+import { IAbsenceModel } from '../../api/absence/IAbsence'
+import { AbsenceService } from '../../api/absence/absence.service'
+import { BreakpointService } from '../../services/breakpoint.service'
+import { IStudentModel } from '../../api/student/Istudent'
 
 @Component({
   selector: 'app-list-freq',
@@ -26,21 +27,18 @@ import { BreakpointService } from '../../services/breakpoint.service';
   templateUrl: './list-freq.component.html',
 })
 export class ListFreqComponent {
-  data: IAbsenceModel[] = [];
+  data: IStudentModel[] = []
 
-  imgEdit = '<app-img-edit></app-img-edit>';
+  imgEdit = '<app-img-edit></app-img-edit>'
 
-  constructor(
-    private absenceService: AbsenceService,
-    private breakpointService: BreakpointService
-  ) {}
+  constructor(private absenceService: AbsenceService, private breakpointService: BreakpointService) {}
 
   async ngOnInit() {
-    await this.loadAbsence();
+    await this.loadAbsence()
   }
 
   headersByBreakpoint() {
-    const { xs } = this.breakpointService.breakpoint();
+    const { xs } = this.breakpointService.breakpoint()
 
     if (xs) {
       return [
@@ -48,7 +46,7 @@ export class ListFreqComponent {
         { key: 'alunos', label: 'Nome', className: 'w-1/3' },
         { key: 'frequencia', label: 'Faltas', className: 'w-1/3' },
         { key: 'alunos.situacao', label: 'Situação', className: 'w-1/3' },
-      ];
+      ]
     }
 
     return [
@@ -56,15 +54,15 @@ export class ListFreqComponent {
       { key: 'alunos', label: 'Nome Completo' },
       { key: 'frequencia', label: 'Faltas Totais' },
       { key: 'alunos.situacao', label: 'Situação' },
-    ];
+    ]
   }
 
   async loadAbsence() {
     try {
-      const data = await this.absenceService.getAbsence(1);
-      this.data = data;
+      const data = await this.absenceService.getAbsence(1)
+      this.data = data
     } catch (error) {
-      console.error('Erro ao carregar faltas:', error);
+      console.error('Erro ao carregar faltas:', error)
     }
   }
 }

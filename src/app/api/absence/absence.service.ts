@@ -1,24 +1,21 @@
-import { Injectable } from "@angular/core";
-import { api } from "../api";
-import { IAbsenceModel } from "./IAbsence";
+import { Injectable } from '@angular/core'
+import { api } from '../api'
+import { IAbsenceModel } from './IAbsence'
+import { IStudentModel } from '../student/Istudent'
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class AbsenceService {
-    constructor() { }
+  constructor() {}
 
-    async getAbsence(
-        id: number
-    ): Promise<IAbsenceModel[]> {
-        try {
-            const response = await api.get<IAbsenceModel[]>(
-                '/faltas/' + id,
-            );
-            return response;
-        } catch (error) {
-            console.error('Erro ao buscar faltas:', error);
-            throw error;
-        }
+  async getAbsence(cursos_id: number): Promise<IStudentModel[]> {
+    try {
+      const response = await api.get<IStudentModel[]>('/frequencia/' + cursos_id)
+      return response
+    } catch (error) {
+      console.error('Erro ao buscar faltas:', error)
+      throw error
     }
+  }
 }

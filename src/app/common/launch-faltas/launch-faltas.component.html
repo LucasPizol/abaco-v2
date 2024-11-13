@@ -1,10 +1,33 @@
 <app-list-div>
   <app-titles text="Lançamento de Faltas"></app-titles>
   <app-grid>
-    <select required placeholder="Curso" class="text-12 p-3 flex-1 w-full">
+    <select
+      required
+      placeholder="Curso"
+      class="text-12 p-3 flex-1 w-full"
+      [(ngModel)]="formData.curso_id"
+      name="curso_id"
+      (change)="loadClasses()"
+    >
       <option disabled selected value="">Selecione o Curso</option>
+      <ng-container *ngFor="let item of courses">
+        <option [value]="item.id">{{ item.nome }}</option>
+      </ng-container>
     </select>
-    <app-inputs className="text-12 p-3 flex-1 w-full" type="date" />
+
+    <select
+      required
+      placeholder="Curso"
+      class="text-12 p-3 flex-1 w-full"
+      [(ngModel)]="formData.date"
+      name="curso_id"
+      (change)="loadAbsence()"
+    >
+      <option disabled selected value="">Selecione a aula</option>
+      <ng-container *ngFor="let item of classes">
+        <option [value]="item.id">{{ getDate(item.aula) }}</option>
+      </ng-container>
+    </select>
   </app-grid>
 
   <div style="height: 300px; overflow-y: auto">
