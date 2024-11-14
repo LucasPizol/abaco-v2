@@ -21,7 +21,7 @@ import { ClassService } from '../../api/class/class.service';
     PesquisaComponent,
     TableComponent,
     ImgEditComponent
-],
+  ],
   templateUrl: './list-aula.component.html',
 })
 export class ListAulaComponent {
@@ -40,7 +40,10 @@ export class ListAulaComponent {
   async loadClass() {
     try {
       const data = await this.classService.getClass(1);
-      this.data = data
+      this.data = data.map(({ aula, ...datas }) => ({
+        ...datas,
+        aula: new Date(aula).toLocaleDateString('pt-br')
+      }))
     } catch (error) {
       console.error('Erro ao carregar aulas:', error);
     }

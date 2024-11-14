@@ -14,6 +14,7 @@ import { ListAulasComponent } from './pages/listAulas/listAulas.component';
 import { ListFrequenciaComponent } from './pages/listFrequencia/listFrequencia.component';
 import { CalendarioComponent } from './pages/calendario/calendario.component';
 import { CriarAulaComponent } from './pages/criarAula/criarAula.component';
+import { PostarAulaComponent } from './pages/postar-aula/postar-aula.component';
 
 export const routes: Routes = [
   {
@@ -80,6 +81,10 @@ export const routes: Routes = [
   {
     path: 'listfrequencia',
     component: ListFrequenciaComponent,
+  },
+  {
+    path: 'postaraula',
+    component: PostarAulaComponent,
   },
   {
     path: '**',

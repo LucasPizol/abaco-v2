@@ -43,17 +43,17 @@ export class ListFreqComponent {
     if (xs) {
       return [
         { key: 'id', label: 'RA', className: 'w-8' },
-        { key: 'alunos', label: 'Nome', className: 'w-1/3' },
+        { key: 'nome', label: 'Nome', className: 'w-1/3' },
         { key: 'frequencia', label: 'Faltas', className: 'w-1/3' },
-        { key: 'alunos.situacao', label: 'Situação', className: 'w-1/3' },
+        { key: 'situacao', label: 'Situação', className: 'w-1/3' },
       ]
     }
 
     return [
       { key: 'id', label: 'Registro Academico' },
-      { key: 'alunos', label: 'Nome Completo' },
+      { key: 'nomes', label: 'Nome Completo' },
       { key: 'frequencia', label: 'Faltas Totais' },
-      { key: 'alunos.situacao', label: 'Situação' },
+      { key: 'situacao', label: 'Situação' },
     ]
   }
 
