@@ -3,6 +3,6 @@ import { ICourseModel } from "../course/ICourse";
 export interface IClassModel {
     id: number;
     descricao: string;
-    aula: Date;
+    aula: string;
     cursos: ICourseModel;
 }
