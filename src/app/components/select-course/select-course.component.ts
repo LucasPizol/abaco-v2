@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CourseService } from '../../api/course/course.service';
-import { ICourseModel } from '../../api/course/ICourse';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-select-course',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './select-course.component.html',
   providers: [CourseService]
 })
 export class SelectCourseComponent {
-  data: ICourseModel[] = []
+  @Input() placeholder: string = '';
+  constructor(private courseService: CourseService) { }
 
-  constructor(
-    private courseService: CourseService
-
-  ) { }
-  async ngOnInit() {
-    this.data = await this.courseService.getCourses()
+  ngOnInit(): void {
+    this.loadOptions();
   }
 
+  loadOptions(): void {
+    this.courseService.getCourses()
+  };
 }

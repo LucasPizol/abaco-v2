@@ -1,3 +1,5 @@
-<select required>
-    <option disabled value="">Selecione um item</option>
-</select>
+<select>
+    <option value="" disabled selected>{{ placeholder }}</option>
+    <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+  </select>
+  
