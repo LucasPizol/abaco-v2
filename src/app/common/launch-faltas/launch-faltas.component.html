@@ -36,15 +36,10 @@
       [paddingCell]="'8'"
       [headers]="headersByBreakpoint()"
       [data]="data"
-      [content]="[imgEditTemplate]"
     >
     </app-table>
   </div>
-  <ng-template #imgEditTemplate>
-    <div class="flex items-center space-x-2">
-      <app-img-edit></app-img-edit>
-    </div>
-  </ng-template>
+
   <app-reorganize-input class="flex align-right">
     <app-btn-down text="Salvar" route="/teacher"></app-btn-down>
   </app-reorganize-input>

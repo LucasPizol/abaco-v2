@@ -17,6 +17,7 @@ import { GradeService } from '../../api/grade/grade.service'
 import { IStudentModel } from '../../api/student/Istudent'
 import { ClassService } from '../../api/class/class.service'
 import { IClassModel } from '../../api/class/IClass'
+import { ITableHeader } from '../../interfaces/TableHeader'
 @Component({
   selector: 'app-launch-faltas',
   standalone: true,
@@ -67,14 +68,29 @@ export class LaunchFaltasComponent {
     await this.loadCourse()
   }
 
-  headersByBreakpoint() {
+  headersByBreakpoint(): ITableHeader<IStudentModel> {
     const { xs } = this.breakpointService.breakpoint()
+
+    const data = this.data
 
     if (xs) {
       return [
         { key: 'id', label: 'RA', className: 'w-8' },
         { key: 'nome', label: 'Nome', className: 'w-1/3 text-center' },
-        { key: 'frequencia', label: 'Faltas', className: 'w-1/4 text-center' },
+        {
+          key: 'frequencia',
+          label: 'Faltas',
+          className: 'w-1/4 text-center',
+          render(item) {
+            return {
+              type: 'checkbox',
+              checked: !!item.frequencia,
+              onChange() {
+                item.frequencia = !item.frequencia
+              },
+            }
+          },
+        },
         { key: 'situacao', label: 'Situação', className: 'w-1/3 text-center' },
       ]
     }
@@ -82,7 +98,19 @@ export class LaunchFaltasComponent {
     return [
       { key: 'id', label: 'Registro Academico' },
       { key: 'nome', label: 'Nome Completo' },
-      { key: 'frequencia', label: 'Faltas Totais' },
+      {
+        key: 'frequencia',
+        label: 'Faltas Totais',
+        render: (item) => {
+          return {
+            type: 'checkbox',
+            checked: !!item.frequencia,
+            onChange() {
+              item.frequencia = !item.frequencia
+            },
+          }
+        },
+      },
       { key: 'situacao', label: 'Situação' },
     ]
   }

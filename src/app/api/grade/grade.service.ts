@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { api } from '../api'
 import { IStudentModel } from '../student/Istudent'
+import { IGradeModel } from './IGrade'
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,15 @@ export class GradeService {
       const response = await api.get<IStudentModel[]>('/estudantes/curso/' + id)
 
       return response
+    } catch (error) {
+      console.error('Erro ao buscar notas:', error)
+      throw error
+    }
+  }
+
+  async loadAllGrades(): Promise<IGradeModel[]> {
+    try {
+      return await api.get('/notas')
     } catch (error) {
       console.error('Erro ao buscar notas:', error)
       throw error

@@ -1,5 +1,9 @@
-import { IStudentModel } from "../student/Istudent";
+import { IStudentModel } from '../student/Istudent'
 
 export interface IGradeModel {
-    alunos: IStudentModel;
+  id: number
+  alunos_id: number
+  cursos_id: number
+  grade: number
+  nome_curso: string
 }

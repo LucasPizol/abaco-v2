@@ -1,8 +1,12 @@
 <app-list-div>
   <div class="flex flex-col items-start justify-center flex-1 gap-y-8">
-    <app-titles text="Visualização do Calendário"></app-titles>
+    <app-titles text="Visualização do Calendário" />
     <app-popout></app-popout>
-    <nz-calendar [(ngModel)]="date" [(nzMode)]="mode" (nzPanelChange)="panelChange($event)"
-      class="w-full"></nz-calendar>
+    <nz-calendar
+      [(ngModel)]="date"
+      [(nzMode)]="mode"
+      (nzPanelChange)="panelChange($event)"
+      class="w-full"
+    ></nz-calendar>
   </div>
 </app-list-div>

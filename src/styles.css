@@ -1,18 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-select:invalid {color: gray!important}
+select:invalid {
+  color: gray !important;
+}
 
 *::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #f3f3f3;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #FBB03B;
-    border-radius: 20px;
-    border: 3px solid #F3F3F3;
-  }
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f3f3f3;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fbb03b;
+  border-radius: 20px;
+  border: 3px solid #f3f3f3;
+}
+
+input[type='checkbox'] {
+  all: unset;
+  border: 1px solid black;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+input:checked {
+  background-color: #fbb03b;
+  border: 1px solid transparent;
+}
+
+input:checked::after {
+  content: '';
+
+  width: 5px; /* Ajuste o tamanho da linha horizontal */
+  height: 10px; /* Ajuste o tamanho da linha vertical */
+  border-width: 3px;
+  border-style: solid;
+  border-color: white; /* Cor do "check" */
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg) translate(5px, -2.4px); /* Rotaciona para o formato de "check" */
+  color: white !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
