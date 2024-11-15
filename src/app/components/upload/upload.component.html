@@ -1,12 +1,7 @@
-
-    <nz-upload
-      nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-      [nzHeaders]="{ authorization: 'authorization-text' }"
-      (nzChange)="handleChange($event)"
-    >
-      <button nz-button>
-        <span nz-icon nzType="upload"></span>
-        Anexar Arquivo
-      </button>
-    </nz-upload>
-  
+<nz-upload nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+  [nzHeaders]="{ authorization: 'authorization-text' }" (nzChange)="handleChange($event)">
+  <button nz-button class="bg-[#FBB03B] text-white w-full">
+    <span nz-icon nzType="upload"></span>
+    Anexar Arquivo
+  </button>
+</nz-upload>

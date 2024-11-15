@@ -1,8 +1,5 @@
-<table
-  class="bg-[#FFFFFF] rounded w-full text-left border-collapse"
-  [attr.cellSpacing]="spacing"
-  [attr.cellPadding]="paddingCell"
->
+<table class="bg-[#FFFFFF] rounded w-full text-left border-collapse" [attr.cellSpacing]="spacing"
+  [attr.cellPadding]="paddingCell">
   <thead class="w-full">
     <tr class="w-full">
       <th *ngFor="let header of headers" class="{{ header.className }}">
@@ -12,17 +9,11 @@
   </thead>
   <tbody class="w-full">
     <tr *ngFor="let item of data" class="w-full">
-      <td
-        *ngFor="let header of headers"
-        class="text-[14px] px-4 py-2 border-b text-left {{ className }} {{ header.className }}"
-      >
+      <td *ngFor="let header of headers"
+        class="text-[14px] px-4 py-2 border-b text-left {{ className }} {{ header.className }}">
         <ng-container *ngIf="header.render">
-          <input
-            *ngIf="header.render(item).type === 'checkbox'"
-            type="checkbox"
-            [checked]="header.render(item).checked"
-            (change)="header.render(item).onChange?.($event)"
-          />
+          <input *ngIf="header.render(item).type === 'checkbox'" type="checkbox" [checked]="header.render(item).checked"
+            (change)="header.render(item).onChange?.($event)" />
         </ng-container>
 
         <ng-container *ngIf="!header.render">
