@@ -1,5 +1,3 @@
-import { IStudentModel } from '../student/Istudent'
-
 export interface IGradeModel {
   id: number
   alunos_id: number

@@ -1,10 +1,8 @@
 import { Component } from '@angular/core'
-import { ImgEditComponent } from '../../components/images/img-edit/img-edit.component'
 import { TitlesComponent } from '../../components/titles/titles.component'
 import { ListDivComponent } from '../../components/list-div/list-div.component'
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component'
 import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component'
-import { InputsComponent } from '../../components/inputs/inputs.component'
 import { TableComponent } from '../../components/table/table.component'
 import { AbsenceService } from '../../api/absence/absence.service'
 import { GridComponent } from '../../components/grid/grid.component'
@@ -23,7 +21,6 @@ import { ButtonComponent } from '../../components/buttons/button.component'
   selector: 'app-launch-faltas',
   standalone: true,
   imports: [
-    ImgEditComponent,
     ListDivComponent,
     TitlesComponent,
     ReorganizeInputComponent,
@@ -33,7 +30,6 @@ import { ButtonComponent } from '../../components/buttons/button.component'
     GridComponent,
     FormsModule,
     CommonModule,
-    ImgEditComponent,
     ReorganizeInputComponent,
     BtnDownComponent,
     ButtonComponent,

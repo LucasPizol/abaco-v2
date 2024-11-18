@@ -1,3 +1,7 @@
-<select required>
-    <option disabled value="">Selecione um item</option>
+<select required placeholder="Curso" class="text-12 p-3 flex-1 w-full" [(ngModel)]="formData.curso_id" name="curso_id"
+  (change)="loadCourse()">
+  <option disabled selected value="">Selecione o Curso</option>
+  <ng-container *ngFor="let item of courses">
+    <option [value]="item.id">{{ item.nome }}</option>
+  </ng-container>
 </select>

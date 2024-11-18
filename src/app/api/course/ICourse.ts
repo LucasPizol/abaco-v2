@@ -1,7 +1,7 @@
 export interface ICourseModel {
     id: number,
     nome: string,
-    data_inicio: Date,
-    data_fim: Date,
+    data_inicio: string,
+    data_fim: string,
     descricao: string,
 }
