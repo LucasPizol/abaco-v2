@@ -18,6 +18,7 @@ import { IStudentModel } from '../../api/student/Istudent'
 import { ClassService } from '../../api/class/class.service'
 import { IClassModel } from '../../api/class/IClass'
 import { ITableHeader } from '../../interfaces/TableHeader'
+import { ButtonComponent } from '../../components/buttons/button.component'
 @Component({
   selector: 'app-launch-faltas',
   standalone: true,
@@ -35,6 +36,7 @@ import { ITableHeader } from '../../interfaces/TableHeader'
     ImgEditComponent,
     ReorganizeInputComponent,
     BtnDownComponent,
+    ButtonComponent,
   ],
   templateUrl: './launch-faltas.component.html',
   providers: [GradeService, CourseService, AbsenceService, ClassService],
@@ -51,7 +53,7 @@ export class LaunchFaltasComponent {
 
   formData = {
     curso_id: '',
-    date: '',
+    aula_id: '',
   }
 
   imgEdit = '<app-img-edit></app-img-edit>'
@@ -59,7 +61,6 @@ export class LaunchFaltasComponent {
   constructor(
     private absenceService: AbsenceService,
     private breakpointService: BreakpointService,
-    private gradeService: GradeService,
     private courseService: CourseService,
     private classService: ClassService
   ) {}
@@ -70,8 +71,6 @@ export class LaunchFaltasComponent {
 
   headersByBreakpoint(): ITableHeader<IStudentModel> {
     const { xs } = this.breakpointService.breakpoint()
-
-    const data = this.data
 
     if (xs) {
       return [
@@ -136,7 +135,7 @@ export class LaunchFaltasComponent {
   async loadClasses() {
     try {
       this.classes = await this.classService.getClass(parseInt(this.formData.curso_id))
-      this.formData.date = ''
+      this.formData.aula_id = ''
       this.data = []
     } catch (error) {
       console.error('Erro ao carregar aulas:', error)
@@ -145,5 +144,17 @@ export class LaunchFaltasComponent {
 
   getDate(data: string | Date) {
     return new Date(data).toLocaleDateString('pt-br')
+  }
+
+  async onSubmit() {
+    try {
+      await this.absenceService.register(this.data, parseInt(this.formData.aula_id))
+      this.classes = []
+      this.formData = {
+        aula_id: '',
+        curso_id: '',
+      }
+      this.data = []
+    } catch (error) {}
   }
 }

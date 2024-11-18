@@ -19,7 +19,7 @@
       required
       placeholder="Curso"
       class="text-12 p-3 flex-1 w-full"
-      [(ngModel)]="formData.date"
+      [(ngModel)]="formData.aula_id"
       name="curso_id"
       (change)="loadAbsence()"
     >
@@ -41,6 +41,6 @@
   </div>
 
   <app-reorganize-input class="flex align-right">
-    <app-btn-down text="Salvar" route="/teacher"></app-btn-down>
+    <app-button text="Salvar" (click)="onSubmit()"></app-button>
   </app-reorganize-input>
 </app-list-div>

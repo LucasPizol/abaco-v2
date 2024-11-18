@@ -18,4 +18,16 @@ export class AbsenceService {
       throw error
     }
   }
+
+  async register(data: IStudentModel[], aula_id: number) {
+    try {
+      return await api.post('/frequencia', {
+        students: data,
+        aula_id
+      })
+    } catch (error) {
+      console.error('Erro ao buscar faltas:', error)
+      throw error
+    }
+  }
 }
