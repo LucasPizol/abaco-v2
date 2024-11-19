@@ -79,7 +79,7 @@ export class LaunchFaltasComponent {
           render(item) {
             return {
               type: 'checkbox',
-              checked: !!item.frequencia,
+              value: !!item.frequencia,
               onChange() {
                 item.frequencia = !item.frequencia
               },
@@ -99,7 +99,7 @@ export class LaunchFaltasComponent {
         render: (item) => {
           return {
             type: 'checkbox',
-            checked: !!item.frequencia,
+            value: !!item.frequencia,
             onChange() {
               item.frequencia = !item.frequencia
             },

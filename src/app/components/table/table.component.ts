@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { Component, Input, TemplateRef } from '@angular/core'
 import { ITableHeader } from '../../interfaces/TableHeader'
 import { BlankSlateComponent } from '../blank-slate/blank-slate.component'
+import { InputsComponent } from '../inputs/inputs.component'
 
 @Component({
   selector: 'app-table',

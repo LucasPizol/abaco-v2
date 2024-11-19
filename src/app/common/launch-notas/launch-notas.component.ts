@@ -17,6 +17,7 @@ import { ICourseModel } from '../../api/course/ICourse'
 import { CourseService } from '../../api/course/course.service'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
+import { ButtonComponent } from '../../components/buttons/button.component'
 
 @Component({
   selector: 'app-launch-notas',
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms'
     BtnDownComponent,
     CommonModule,
     FormsModule,
+    ButtonComponent,
   ],
   templateUrl: './launch-notas.component.html',
   providers: [BreakpointService, CourseService],
@@ -61,13 +63,28 @@ export class LaunchNotasComponent {
   }
 
   fetchHeaderByBreakpoint(): ITableHeader<IStudentModel> {
-    const { xs, sm, md } = this.breakpointService.breakpoint()
+    const { xs } = this.breakpointService.breakpoint()
 
     if (xs) {
       return [
         { key: 'id', label: 'RA', className: 'w-4' },
         { key: 'nome', label: 'Nome', className: 'w-1/3' },
-        { key: 'nota', label: 'Nota', className: 'w-1/3' },
+        {
+          key: 'nota',
+          label: 'Nota',
+          className: 'w-1/3',
+          render(student) {
+            return {
+              onChange: (event) => {
+                if (event.target && 'value' in event.target) {
+                  student.nota = parseFloat(event.target.value as string)
+                }
+              },
+              type: 'text',
+              value: !student.nota ? '' : String(student.nota),
+            }
+          },
+        },
         { key: 'situacao', label: 'Situação', className: 'w-1/3' },
       ]
     }
@@ -75,14 +92,29 @@ export class LaunchNotasComponent {
     return [
       { key: 'id', label: 'Registro Acadêmico', className: 'w-1/4' },
       { key: 'nome', label: 'Nome Completo', className: 'w-1/4 text-center' },
-      { key: 'nota', label: 'Nota', className: 'w-1/4 text-center' },
+      {
+        key: 'nota',
+        label: 'Nota',
+        className: 'w-1/4 text-center',
+        render(student) {
+          return {
+            onChange: (event) => {
+              if (event.target && 'value' in event.target) {
+                student.nota = parseFloat(event.target.value as string)
+              }
+            },
+            type: 'text',
+            value: !student.nota ? '' : String(student.nota),
+          }
+        },
+      },
       { key: 'situacao', label: 'Situação', className: 'w-1/4 text-center' },
     ]
   }
 
   async loadGrades() {
     try {
-      const data = await this.gradeService.getGrades(parseInt(this.formData.curso_id))
+      const data = await this.gradeService.getGrades(parseFloat(this.formData.curso_id))
       this.data = data
     } catch (error) {
       console.error('Erro ao carregar faltas:', error)
@@ -98,7 +130,10 @@ export class LaunchNotasComponent {
     }
   }
 
-  async onSubmit(form: any) {
-    console.log(this.formData)
+  async onSubmit() {
+    await this.gradeService.createGrades({
+      cursos_id: parseFloat(this.formData.curso_id),
+      students: this.data,
+    })
   }
 }

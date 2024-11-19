@@ -28,4 +28,13 @@ export class GradeService {
       throw error
     }
   }
+
+  async createGrades(data: { cursos_id: number; students: IStudentModel[] }) {
+    try {
+      return await api.post('/notas', data)
+    } catch (error) {
+      console.error('Erro ao buscar notas:', error)
+      throw error
+    }
+  }
 }
