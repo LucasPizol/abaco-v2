@@ -1,23 +1,85 @@
 <app-list-div>
-  <app-reorganizes-main>
-    <app-titles text="Lista de Aulas"></app-titles>
-  </app-reorganizes-main>
-  <app-reorganize-div-card>
+  <app-titles text="Lista de Aulas"></app-titles>
+  <div class="flex items-start justify-start gap-4 w-full">
     <app-pesquisa></app-pesquisa>
-    <button
-      class="font-bold text-white mx-[260px] p-6 bg-[#FBB03B] flex justify-center items-center text-md font-[varela round] rounded-md h-3 hover:bg-opacity-70">
-      Criar Aula
-    </button>
-  </app-reorganize-div-card>
-  <app-reorganizes-main>
-    <div style="height: 300px; overflow-y: auto; width: 850px;">
-      <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data" [content]="[imgEditTemplate]">
-      </app-table>
-    </div>
-  </app-reorganizes-main>
+    <app-btn-down text="Criar Aula" className="" route="/postaraula"></app-btn-down>
+  </div>
+  <div style="height: 300px; overflow-y: auto; width: 850px">
+    <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headers" [data]="data" [content]="[imgEditTemplate]" />
+  </div>
   <ng-template #imgEditTemplate>
     <div class="flex items-center space-x-2">
       <app-img-edit></app-img-edit>
     </div>
   </ng-template>
+
+  <nz-modal [(nzVisible)]="isModalVisible" nzTitle="Edição de Aula" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+      <form [formGroup]="modalForm" (ngSubmit)="handleOk()" class="flex flex-col gap-4">
+        <app-inputs
+          placeholder="Digite a descrição da aula"
+          formControlName="descricao"
+          className="w-full h-10 border border-gray-300 rounded-md p-2 "
+        ></app-inputs>
+
+        <div class="flex gap-4">
+          <app-inputs
+            type="date"
+            formControlName="aula"
+            className="w-full h-10 border border-gray-300 rounded-md p-2"
+            class="flex-1"
+          ></app-inputs>
+
+          <select class="h-10 border border-gray-300 rounded-md p-2" formControlName="horario-hora">
+            <option value="" disabled>--</option>
+            <option value="00">00</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+          </select>
+          <select class="h-10 border border-gray-300 rounded-md p-2" formControlName="horario-minutos">
+            <option value="" disabled>--</option>
+            <option value="00">00</option>
+            <option value="05">05</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+          </select>
+        </div>
+
+        <textarea
+          formControlName="conteudo"
+          class="w-full h-20 border border-gray-300 rounded-md p-2"
+          placeholder="Digite o conteúdo da aula"
+        ></textarea>
+      </form>
+    </ng-container>
+  </nz-modal>
 </app-list-div>

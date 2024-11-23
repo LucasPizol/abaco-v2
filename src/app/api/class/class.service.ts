@@ -19,4 +19,8 @@ export class ClassService {
   async createClass(data: IClassModel) {
     return await this.api.post('/aulas', data)
   }
+
+  async updateClass(id: number, data: Partial<IClassModel>) {
+    return await this.api.put('/aulas/' + id, data)
+  }
 }

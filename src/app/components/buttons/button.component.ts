@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, Input } from '@angular/core'
+import { RouterModule } from '@angular/router'
 
 @Component({
   selector: 'app-button',
@@ -8,7 +8,8 @@ import { RouterModule } from '@angular/router';
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
-  @Input() text: string = '';
-  @Input() className: string = '';
-  @Input() click: Function = () => {};
+  @Input() text: string = ''
+  @Input() className: string = ''
+  @Input() click: Function = () => {}
+  @Input() route: string = ''
 }

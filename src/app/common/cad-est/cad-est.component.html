@@ -3,102 +3,101 @@
   <app-sub-text text="{{ getStateProps() }}" />
 
   <form [formGroup]="formGroup" (ngSubmit)="submitStudentForm()" *ngIf="firstState()">
-    <app-grid>
-      <app-inputs
-        class="w-full"
-        placeholder="Nome Completo"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="nome"
-      />
-      <select required class="text-12 p-3 flex-1" name="genero" formControlName="genero">
-        <option disabled selected value="">Selecione seu Gênero</option>
-        <option value="Feminino">Feminino</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Outro">Outro</option>
-      </select>
+    <div>
+      <app-grid>
+        <app-inputs class="flex-1" placeholder="Nome Completo" className="text-12 p-3 w-full" formControlName="nome" />
+        <select required class="text-12 p-3" name="genero" formControlName="genero">
+          <option disabled selected value="">Selecione seu Gênero</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Outro">Outro</option>
+        </select>
 
-      <app-inputs
-        type="Number"
-        value="RG"
-        placeholder="RG"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="rg"
-      ></app-inputs>
-      <app-inputs
-        type="Number"
-        value="CPF"
-        placeholder="CPF"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="cpf"
-      ></app-inputs>
+        <app-inputs
+          type="Number"
+          value="RG"
+          placeholder="RG"
+          className="text-12 p-3 w-full"
+          formControlName="rg"
+        ></app-inputs>
+        <app-inputs
+          type="Number"
+          value="CPF"
+          placeholder="CPF"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="cpf"
+        ></app-inputs>
 
-      <select required placeholder="Nível de Escolaridade" class="text-12 p-3 flex-1" formControlName="escolaridade">
-        <option disabled selected value="">Nível de Escolaridade</option>
-        <option value="0">Fundamental Completo</option>
-        <option value="1">Médio Completo</option>
-        <option value="2">Superior Completo</option>
-      </select>
-      <app-inputs
-        placeholder="Data de Nascimento"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="data_nascimento"
-        type="date"
-      ></app-inputs>
-      <app-inputs
-        type="Email"
-        placeholder="Email"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="email"
-      ></app-inputs>
-      <app-inputs
-        type="Number"
-        placeholder="Telefone"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="celular"
-      ></app-inputs>
+        <select required placeholder="Nível de Escolaridade" class="text-12 p-3 flex-1" formControlName="escolaridade">
+          <option disabled selected value="">Nível de Escolaridade</option>
+          <option value="0">Fundamental Completo</option>
+          <option value="1">Médio Completo</option>
+          <option value="2">Superior Completo</option>
+        </select>
+        <app-inputs
+          placeholder="Data de Nascimento"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="data_nascimento"
+          type="date"
+        ></app-inputs>
+        <app-inputs
+          type="Email"
+          placeholder="Email"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="email"
+        ></app-inputs>
+        <app-inputs
+          type="Number"
+          placeholder="Telefone"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="celular"
+        ></app-inputs>
 
-      <app-select-course [onSelect]="handleOnSelectCourse.bind(this)" />
-    </app-grid>
+        <app-select-course [onSelect]="handleOnSelectCourse.bind(this)" />
+      </app-grid>
+    </div>
     <app-button text="Continuar" className="px-4 mt-4"></app-button>
   </form>
 
   <form [formGroup]="address" *ngIf="secondState()" (ngSubmit)="onSubmit()">
-    <app-grid>
-      <app-inputs
-        type="Number"
-        value="CEP"
-        placeholder="CEP"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="cep"
-        [onBlur]="onBlurCep.bind(this)"
-      ></app-inputs>
-      <app-inputs placeholder="UF" className="text-12 p-3 flex-1 w-full" formControlName="uf"></app-inputs>
+    <div>
+      <app-grid>
+        <app-inputs
+          type="Number"
+          value="CEP"
+          placeholder="CEP"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="cep"
+          [onBlur]="onBlurCep.bind(this)"
+        ></app-inputs>
+        <app-inputs placeholder="UF" className="text-12 p-3 flex-1 w-full" formControlName="uf"></app-inputs>
 
-      <select required placeholder="Zoneamento" class="flex-1 text-12 px-4 h-[40px]" formControlName="zoneamento">
-        <option disabled selected value="">Zoneamento</option>
-        <option value="Urbano">Urbano</option>
-        <option value="Rural">Rural</option>
-        <option value="Industrial">Industrial</option>
-      </select>
-      <app-inputs
-        placeholder="Logradouro"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="logradouro"
-      ></app-inputs>
-      <app-inputs
-        type="Number"
-        value="Número"
-        placeholder="Número"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="numero"
-      ></app-inputs>
-      <app-inputs
-        placeholder="Complemento"
-        className="text-12 p-3 flex-1 w-full"
-        formControlName="complemento"
-      ></app-inputs>
-      <app-inputs placeholder="Bairro" className="text-12 p-3 flex-1 w-full" formControlName="bairro"></app-inputs>
-    </app-grid>
+        <select required placeholder="Zoneamento" class="flex-1 text-12 px-3 h-[40px]" formControlName="zoneamento">
+          <option disabled selected value="">Zoneamento</option>
+          <option value="Urbano">Urbano</option>
+          <option value="Rural">Rural</option>
+          <option value="Industrial">Industrial</option>
+        </select>
+        <app-inputs
+          placeholder="Logradouro"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="logradouro"
+        ></app-inputs>
+        <app-inputs
+          type="Number"
+          value="Número"
+          placeholder="Número"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="numero"
+        ></app-inputs>
+        <app-inputs
+          placeholder="Complemento"
+          className="text-12 p-3 flex-1 w-full"
+          formControlName="complemento"
+        ></app-inputs>
+        <app-inputs placeholder="Bairro" className="text-12 p-3 flex-1 w-full" formControlName="bairro"></app-inputs>
+      </app-grid>
+    </div>
     <app-button text="Continuar" className="px-4 mt-4"></app-button>
   </form>
 </app-list-div>

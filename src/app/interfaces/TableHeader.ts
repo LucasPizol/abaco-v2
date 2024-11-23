@@ -10,9 +10,16 @@ type Comp =
       onChange?: (event: Event) => void
     }
 
+type Icons = 'edit' | 'delete'
+
 export type ITableHeader<T extends object = any> = {
   key: keyof T | string
   label: string
   className?: string
   render?: (value: T) => Comp
+  actions?: {
+    onClick: (value: T) => void
+    label?: string
+    icon?: Icons
+  }[]
 }[]

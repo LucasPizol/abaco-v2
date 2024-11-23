@@ -3,11 +3,12 @@ import { Component, Input, TemplateRef } from '@angular/core'
 import { ITableHeader } from '../../interfaces/TableHeader'
 import { BlankSlateComponent } from '../blank-slate/blank-slate.component'
 import { InputsComponent } from '../inputs/inputs.component'
+import { ImgEditComponent } from '../images/img-edit/img-edit.component'
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, BlankSlateComponent],
+  imports: [CommonModule, BlankSlateComponent, ImgEditComponent],
   templateUrl: './table.component.html',
 })
 export class TableComponent<T extends object = any> {

@@ -35,11 +35,11 @@ export class ApiService {
   }
 
   async put(path: string, data: any): Promise<void> {
-    await ApiAxiosCreate.put(path, data)
+    await this.handleRequest(ApiAxiosCreate.put(path, data))
   }
 
   async delete(path: string): Promise<void> {
-    await ApiAxiosCreate.delete(path)
+    await this.handleRequest(ApiAxiosCreate.delete(path))
   }
 
   private async handleRequest<T>(request: Promise<AxiosResponse<CommonResponse<T>>>): Promise<T> {
@@ -49,14 +49,14 @@ export class ApiService {
       if (error instanceof AxiosError) {
         if (error.response) {
           this.toastService.error(error.response.data.error_message)
-          return null as T
+          throw error
         }
         this.toastService.error('Erro desconhecido')
-        return null as T
+        throw error
       }
 
       this.toastService.error('Erro desconhecido')
-      return null as T
+      throw error
     }
   }
 }

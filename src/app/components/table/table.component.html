@@ -12,37 +12,42 @@
   </thead>
   <tbody class="w-full">
     <tr *ngFor="let item of data" class="w-full">
-      <td
-        *ngFor="let header of headers"
-        class="text-[14px] px-4 py-2 border-b text-left {{ className }} {{ header.className }}"
-      >
-        @if (header.render) { @if (header.render(item).type === "checkbox") {
-        <input
-          *ngIf="header.render(item).type === 'checkbox'"
-          type="checkbox"
-          [checked]="header.render(item).value"
-          (change)="header.render(item).onChange?.($event)"
-        />
+      <ng-container *ngFor="let header of headers">
+        <td class="text-[14px] px-4 py-2 border-b text-left {{ className }} {{ header.className }}">
+          @if (header.render) { @if (header.render(item).type === "checkbox") {
+          <input
+            *ngIf="header.render(item).type === 'checkbox'"
+            type="checkbox"
+            [checked]="header.render(item).value"
+            (change)="header.render(item).onChange?.($event)"
+          />
 
-        } @else if (header.render(item).type === "text") {}
-        <input
-          type="text"
-          *ngIf="header.render(item).type === 'text'"
-          [value]="header.render(item).value"
-          (change)="header.render(item).onChange?.($event)"
-          class="text-12 p-1 flex-1 border max-w-24"
-        />
-        }
+          } @else if (header.render(item).type === "text") {}
+          <input
+            type="text"
+            *ngIf="header.render(item).type === 'text'"
+            [value]="header.render(item).value"
+            (change)="header.render(item).onChange?.($event)"
+            class="text-12 p-1 flex-1 border max-w-24"
+          />
+          }
 
-        <ng-container *ngIf="!header.render">
-          {{ item[header.key] }}
-        </ng-container>
-      </td>
-      <td>
-        <ng-container *ngFor="let template of content">
-          <ng-container *ngTemplateOutlet="template"></ng-container>
-        </ng-container>
-      </td>
+          <ng-container *ngIf="!header.render">
+            {{ item[header.key] }}
+          </ng-container>
+        </td>
+
+        <td *ngIf="header.actions" class="border-b text-left">
+          <ng-container *ngFor="let action of header.actions">
+            <div
+              *ngIf="action.icon === 'edit'"
+              class="w-[18px] h-[18px] cursor-pointer flex items-center justify-center"
+            >
+              <app-img-edit (click)="action.onClick(item)"></app-img-edit>
+            </div>
+          </ng-container>
+        </td>
+      </ng-container>
     </tr>
   </tbody>
 </table>
