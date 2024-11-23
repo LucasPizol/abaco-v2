@@ -1,8 +1,9 @@
-<div style="display: flex; justify-content: center; padding-top: 30px;">
-    <button 
-        (click)="click"
-        class= "bg-[#FBB03B] rounded font-[varela round] text-white text-lg w-[150px] h-[40px]
-        flex justify-center items-center hover:bg-opacity-70 {{ className }}">
-        {{ text }}
-    </button>
-  </div>
+<button
+  (click)="(click)"
+  class="bg-[#FBB03B] rounded font-[varela round] text-lg max-w-[150px] h-[40px]
+        flex justify-center items-center hover:bg-opacity-70 {{ className }}
+        {{ className.includes('text-[') ? '' : 'text-[#fff]' }}
+        "
+>
+  {{ text }}
+</button>

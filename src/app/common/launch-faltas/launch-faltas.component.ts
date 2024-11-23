@@ -112,7 +112,7 @@ export class LaunchFaltasComponent {
 
   async loadAbsence() {
     try {
-      const data = await this.absenceService.getAbsence(parseInt(this.formData.curso_id))
+      const data = await this.absenceService.getAbsence(parseInt(this.formData.aula_id))
       this.data = data
     } catch (error) {
       console.error('Erro ao carregar faltas:', error)

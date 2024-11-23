@@ -18,6 +18,7 @@
       >
         @if (header.render) { @if (header.render(item).type === "checkbox") {
         <input
+          *ngIf="header.render(item).type === 'checkbox'"
           type="checkbox"
           [checked]="header.render(item).value"
           (change)="header.render(item).onChange?.($event)"
@@ -26,6 +27,7 @@
         } @else if (header.render(item).type === "text") {}
         <input
           type="text"
+          *ngIf="header.render(item).type === 'text'"
           [value]="header.render(item).value"
           (change)="header.render(item).onChange?.($event)"
           class="text-12 p-1 flex-1 border max-w-24"

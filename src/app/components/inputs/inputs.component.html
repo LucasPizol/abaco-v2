@@ -1,2 +1,9 @@
-<input [placeholder]="placeholder" [type]="type" min="0" [name]="name"
-    class="font-[varela round] rounded-md {{ className }}"  [(ngModel)]="value" >
+<input
+  [placeholder]="placeholder"
+  [type]="type"
+  min="0"
+  [name]="name"
+  class="font-[varela round] rounded-md {{ className }}"
+  [(ngModel)]="value"
+  (blur)="handleBlur()"
+/>

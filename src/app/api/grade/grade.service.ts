@@ -9,9 +9,11 @@ import { IGradeModel } from './IGrade'
 export class GradeService {
   constructor() {}
 
-  async getGrades(id: number): Promise<IStudentModel[]> {
+  async getGrades(id: number, data: string): Promise<IStudentModel[]> {
     try {
-      const response = await api.get<IStudentModel[]>('/estudantes/curso/' + id)
+      const response = await api.get<IStudentModel[]>('/notas/' + id, {
+        data,
+      })
 
       return response
     } catch (error) {
@@ -29,7 +31,7 @@ export class GradeService {
     }
   }
 
-  async createGrades(data: { cursos_id: number; students: IStudentModel[] }) {
+  async createGrades(data: { cursos_id: number; data: Date; students: IStudentModel[] }) {
     try {
       return await api.post('/notas', data)
     } catch (error) {

@@ -27,4 +27,13 @@ export class ClassService {
       throw error
     }
   }
+
+  async createClass(data: IClassModel) {
+    try {
+      return await api.post('/aulas', data)
+    } catch (error) {
+      console.error('Erro ao criar aula:', error)
+      throw error
+    }
+  }
 }

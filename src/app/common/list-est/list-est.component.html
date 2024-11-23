@@ -1,11 +1,36 @@
 <app-list-div>
   <app-titles text="Lista de Estudantes"></app-titles>
   <app-pesquisa></app-pesquisa>
-  <div style="height: 300px; overflow-y: auto">
-    <app-table [spacing]="'2'" [paddingCell]="'8'" [headers]="headerByBreakpoint()" [data]="data"
-      [content]="[imgEditTemplate]">
+  <div style="overflow-y: auto" class="flex-1">
+    <app-table
+      [spacing]="'2'"
+      [paddingCell]="'8'"
+      [headers]="headerByBreakpoint()"
+      [data]="data"
+      [content]="[imgEditTemplate]"
+    >
     </app-table>
   </div>
+
+  <div class="w-full flex justify-between">
+    <div class="flex gap-2">
+      <div *ngFor="let item of paginationParams">
+        <app-button
+          (click)="handlePagination(item)"
+          text="{{ item }}"
+          className="text-xs aspect-square h-[30px] w-[30px]
+        {{
+            (page + 1).toString() === item
+              ? 'bg-[#FBB03B]'
+              : 'bg-white hover:bg-[#dedede] border-[#FBB03B] border text-[#FBB03B]'
+          }}
+        "
+        />
+      </div>
+    </div>
+    <p>{{ paginationLabel() }}</p>
+  </div>
+
   <ng-template #imgEditTemplate>
     <div class="bg-black">
       <app-img-edit />

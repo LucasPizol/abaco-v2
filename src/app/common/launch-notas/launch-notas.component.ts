@@ -114,7 +114,9 @@ export class LaunchNotasComponent {
 
   async loadGrades() {
     try {
-      const data = await this.gradeService.getGrades(parseFloat(this.formData.curso_id))
+      if (!this.formData.curso_id || !this.formData.aula) return
+
+      const data = await this.gradeService.getGrades(parseFloat(this.formData.curso_id), this.formData.aula)
       this.data = data
     } catch (error) {
       console.error('Erro ao carregar faltas:', error)
@@ -131,9 +133,14 @@ export class LaunchNotasComponent {
   }
 
   async onSubmit() {
+    if (!this.formData.curso_id || !this.formData.aula) {
+      return
+    }
+
     await this.gradeService.createGrades({
       cursos_id: parseFloat(this.formData.curso_id),
       students: this.data,
+      data: this.formData.aula,
     })
   }
 }

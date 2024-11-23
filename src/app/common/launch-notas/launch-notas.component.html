@@ -11,7 +11,6 @@
         class="text-12 p-3 flex-1 w-full"
         [(ngModel)]="formData.curso_id"
         name="curso_id"
-        (change)="loadGrades()"
       >
         <option disabled selected value="">Selecione o Curso</option>
 
@@ -19,7 +18,14 @@
           <option [value]="item.id">{{ item.nome }}</option>
         </ng-container>
       </select>
-      <app-inputs className="text-12 p-3 flex-1 w-full" type="date" [(ngModel)]="formData.aula" name="aula" required />
+      <app-inputs
+        className="text-12 p-3 flex-1 w-full"
+        type="date"
+        [(ngModel)]="formData.aula"
+        name="aula"
+        required
+        (change)="loadGrades()"
+      />
     </app-grid>
 
     <app-grid>
