@@ -29,6 +29,9 @@ export class LoginComponent {
   }
 
   async onSubmit(form: any) {
+    if (typeof window === 'undefined') {
+      return
+    }
     const data = await this.authenticationService.auth(this.formData.email, this.formData.password)
 
     localStorage.setItem('token', data.token)

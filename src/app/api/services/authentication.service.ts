@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { api } from '../api';
+import { Injectable } from '@angular/core'
+import { api } from '../api'
 
 @Injectable({
   providedIn: 'root',
@@ -9,21 +9,28 @@ export class AuthenticationService {
     email: string,
     senha: string
   ): Promise<{
-    token: string;
-    docente: any;
+    token: string
+    docente: any
   }> {
-    return await api.post('/login', { email, senha });
+    return await api.post('/login', { email, senha })
   }
 
   async getDocente(): Promise<any> {
-    if (!localStorage.getItem('token')) {
-      throw new Error('Token não encontrado');
+    if (typeof window === 'undefined') {
+      return
     }
 
-    return await api.get('/docentes');
+    if (!localStorage.getItem('token')) {
+      throw new Error('Token não encontrado')
+    }
+
+    return await api.get('/docentes')
   }
 
   async logout(): Promise<void> {
-    localStorage.removeItem('token');
+    if (typeof window === 'undefined') {
+      return
+    }
+    localStorage.removeItem('token')
   }
 }
