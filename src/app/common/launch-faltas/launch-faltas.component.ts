@@ -24,14 +24,12 @@ import { ButtonComponent } from '../../components/buttons/button.component'
     ListDivComponent,
     TitlesComponent,
     ReorganizeInputComponent,
-    BtnDownComponent,
     GridComponent,
     TableComponent,
     GridComponent,
     FormsModule,
     CommonModule,
     ReorganizeInputComponent,
-    BtnDownComponent,
     ButtonComponent,
   ],
   templateUrl: './launch-faltas.component.html',
@@ -111,31 +109,18 @@ export class LaunchFaltasComponent {
   }
 
   async loadAbsence() {
-    try {
-      const data = await this.absenceService.getAbsence(parseInt(this.formData.aula_id))
-      this.data = data
-    } catch (error) {
-      console.error('Erro ao carregar faltas:', error)
-    }
+    const data = await this.absenceService.getAbsence(parseInt(this.formData.aula_id))
+    this.data = data
   }
 
   async loadCourse() {
-    try {
-      const data = await this.courseService.getCourses()
-      this.courses = data
-    } catch (error) {
-      console.error('Erro ao carregar cursos:', error)
-    }
+    this.courses = await this.courseService.getCourses()
   }
 
   async loadClasses() {
-    try {
-      this.classes = await this.classService.getClass(parseInt(this.formData.curso_id))
-      this.formData.aula_id = ''
-      this.data = []
-    } catch (error) {
-      console.error('Erro ao carregar aulas:', error)
-    }
+    this.classes = await this.classService.getClass(parseInt(this.formData.curso_id))
+    this.formData.aula_id = ''
+    this.data = []
   }
 
   getDate(data: string | Date) {

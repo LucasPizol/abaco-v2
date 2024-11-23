@@ -18,6 +18,7 @@ import { CourseService } from '../../api/course/course.service'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { ButtonComponent } from '../../components/buttons/button.component'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-launch-notas',
@@ -31,7 +32,6 @@ import { ButtonComponent } from '../../components/buttons/button.component'
     TableComponent,
     ImgEditComponent,
     ReorganizeInputComponent,
-    BtnDownComponent,
     CommonModule,
     FormsModule,
     ButtonComponent,
@@ -43,7 +43,8 @@ export class LaunchNotasComponent {
   constructor(
     private gradeService: GradeService,
     private readonly breakpointService: BreakpointService,
-    private readonly courseService: CourseService
+    private readonly courseService: CourseService,
+    private readonly toastService: ToastrService
   ) {}
 
   data: IStudentModel[] = []
@@ -113,23 +114,13 @@ export class LaunchNotasComponent {
   }
 
   async loadGrades() {
-    try {
-      if (!this.formData.curso_id || !this.formData.aula) return
+    if (!this.formData.curso_id || !this.formData.aula) return
 
-      const data = await this.gradeService.getGrades(parseFloat(this.formData.curso_id), this.formData.aula)
-      this.data = data
-    } catch (error) {
-      console.error('Erro ao carregar faltas:', error)
-    }
+    this.data = await this.gradeService.getGrades(parseFloat(this.formData.curso_id), this.formData.aula)
   }
 
   async loadCourses() {
-    try {
-      const data = await this.courseService.getCourses()
-      this.courses = data
-    } catch (error) {
-      console.error('Erro ao carregar cursos:', error)
-    }
+    this.courses = await this.courseService.getCourses()
   }
 
   async onSubmit() {
@@ -142,5 +133,14 @@ export class LaunchNotasComponent {
       students: this.data,
       data: this.formData.aula,
     })
+
+    this.toastService.success('Notas lançadas com sucesso!')
+    this.formData = {
+      curso_id: '',
+      aula: undefined,
+      descricao: '',
+    }
+
+    this.data = []
   }
 }

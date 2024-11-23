@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core'
-import { api } from '../api'
+import { ApiService } from '../api'
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
+  constructor(private readonly api: ApiService) {}
+
   async auth(
     email: string,
     senha: string
@@ -12,7 +14,7 @@ export class AuthenticationService {
     token: string
     docente: any
   }> {
-    return await api.post('/login', { email, senha })
+    return await this.api.post('/login', { email, senha })
   }
 
   async getDocente(): Promise<any> {
@@ -24,7 +26,7 @@ export class AuthenticationService {
       throw new Error('Token não encontrado')
     }
 
-    return await api.get('/docentes')
+    return await this.api.get('/docentes')
   }
 
   async logout(): Promise<void> {

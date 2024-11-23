@@ -1,39 +1,22 @@
 import { Injectable } from '@angular/core'
-import { api } from '../api'
+import { ApiService } from '../api'
 import { IClassModel } from './IClass'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClassService {
-  constructor() {}
+  constructor(private readonly api: ApiService) {}
 
   async getClass(id: number): Promise<IClassModel[]> {
-    try {
-      const response = await api.get<IClassModel[]>('/aulas/' + id)
-      return response
-    } catch (error) {
-      console.error('Erro ao buscar aulas:', error)
-      throw error
-    }
+    return await this.api.get<IClassModel[]>('/aulas/' + id)
   }
 
   async loadClasses(): Promise<IClassModel[]> {
-    try {
-      const response = await api.get<IClassModel[]>('/aulas')
-      return response
-    } catch (error) {
-      console.error('Erro ao buscar aulas:', error)
-      throw error
-    }
+    return await this.api.get<IClassModel[]>('/aulas')
   }
 
   async createClass(data: IClassModel) {
-    try {
-      return await api.post('/aulas', data)
-    } catch (error) {
-      console.error('Erro ao criar aula:', error)
-      throw error
-    }
+    return await this.api.post('/aulas', data)
   }
 }

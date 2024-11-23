@@ -12,6 +12,7 @@ import { SelectCourseComponent } from '../../components/select-course/select-cou
 import { ICourseModel } from '../../api/course/ICourse'
 import { StudentService } from '../../api/student/student.services'
 import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-cad-est',
@@ -32,9 +33,13 @@ import { Router } from '@angular/router'
   templateUrl: './cad-est.component.html',
 })
 export class CadEstComponent {
-  state = 0
-  constructor(private readonly studentService: StudentService, private readonly router: Router) {}
+  constructor(
+    private readonly studentService: StudentService,
+    private readonly router: Router,
+    private readonly toastService: ToastrService
+  ) {}
 
+  state = 0
   formGroup = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     genero: new FormControl('', [Validators.required]),
@@ -109,7 +114,14 @@ export class CadEstComponent {
   async onSubmit() {
     try {
       await this.studentService.registerStudent(this.formGroup.value as any, this.address.value as any)
-      this.router.navigate(['/cadastroestudante'])
+      this.toastService.success('Estudante cadastrado com sucesso!')
+      this.formGroup.reset()
+      this.address.reset()
+      this.formGroup.patchValue({
+        genero: '',
+        escolaridade: '',
+      })
+      this.state = 0
     } catch (error) {}
   }
 }

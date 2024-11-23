@@ -1,4 +1,6 @@
-import axios from 'axios'
+import { Injectable } from '@angular/core'
+import axios, { AxiosError, AxiosResponse } from 'axios'
+import { ToastrService } from 'ngx-toastr'
 
 const ApiAxiosCreate = axios.create({
   baseURL: 'http://localhost:3125',
@@ -18,13 +20,18 @@ interface CommonResponse<T> {
   type: string
 }
 
-class Api {
+@Injectable({
+  providedIn: 'root',
+})
+export class ApiService {
+  constructor(private toastService: ToastrService) {}
+
   async get<T>(path: string, params?: any): Promise<T> {
-    return (await ApiAxiosCreate.get<CommonResponse<T>>(path, { params })).data.body
+    return this.handleRequest(ApiAxiosCreate.get<CommonResponse<T>>(path, { params }))
   }
 
   async post<T>(path: string, data: any) {
-    return (await ApiAxiosCreate.post<CommonResponse<T>>(path, data)).data.body
+    return this.handleRequest(ApiAxiosCreate.post<CommonResponse<T>>(path, data))
   }
 
   async put(path: string, data: any): Promise<void> {
@@ -34,8 +41,22 @@ class Api {
   async delete(path: string): Promise<void> {
     await ApiAxiosCreate.delete(path)
   }
+
+  private async handleRequest<T>(request: Promise<AxiosResponse<CommonResponse<T>>>): Promise<T> {
+    try {
+      return (await request).data.body
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        if (error.response) {
+          this.toastService.error(error.response.data.error_message)
+          return null as T
+        }
+        this.toastService.error('Erro desconhecido')
+        return null as T
+      }
+
+      this.toastService.error('Erro desconhecido')
+      return null as T
+    }
+  }
 }
-
-const api = new Api()
-
-export { api }

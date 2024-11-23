@@ -58,11 +58,6 @@ export class ListFreqComponent {
   }
 
   async loadAbsence() {
-    try {
-      const data = await this.absenceService.getAbsence(1)
-      this.data = data
-    } catch (error) {
-      console.error('Erro ao carregar faltas:', error)
-    }
+    this.data = await this.absenceService.getAbsence(1)
   }
 }

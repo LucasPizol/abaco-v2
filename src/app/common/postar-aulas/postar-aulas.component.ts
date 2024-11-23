@@ -17,9 +17,7 @@ import { ICourseModel } from '../../api/course/ICourse'
   imports: [
     TitlesComponent,
     SelectCourseComponent,
-    ReorganizeInputComponent,
     InputsComponent,
-    UploadComponent,
     ListDivComponent,
     ButtonComponent,
     ReactiveFormsModule,
@@ -39,22 +37,18 @@ export class PostarAulasComponent {
   })
 
   async onSubmit() {
-    try {
-      const formValues = this.formData.value
+    const formValues = this.formData.value
 
-      console.log('formValues:', formValues)
+    console.log('formValues:', formValues)
 
-      if (this.formData.valid)
-        await this.classService.createClass({
-          descricao: formValues.descricao!,
-          aula: formValues.aula!,
-          horario: `${formValues['horario-hora']}:${formValues['horario-minutos']}`,
-          conteudo: formValues.conteudo!,
-          cursos_id: Number(formValues.cursos_id),
-        } as any)
-    } catch (error) {
-      console.error('Erro ao criar aula:', error)
-    }
+    if (this.formData.valid)
+      await this.classService.createClass({
+        descricao: formValues.descricao!,
+        aula: formValues.aula!,
+        horario: `${formValues['horario-hora']}:${formValues['horario-minutos']}`,
+        conteudo: formValues.conteudo!,
+        cursos_id: Number(formValues.cursos_id),
+      } as any)
   }
 
   handleOnSelectCourse(course: ICourseModel) {

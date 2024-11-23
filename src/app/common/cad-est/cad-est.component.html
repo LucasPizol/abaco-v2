@@ -59,9 +59,7 @@
 
       <app-select-course [onSelect]="handleOnSelectCourse.bind(this)" />
     </app-grid>
-    <app-reorganize-input>
-      <app-button text="Continuar"></app-button>
-    </app-reorganize-input>
+    <app-button text="Continuar" className="px-4 mt-4"></app-button>
   </form>
 
   <form [formGroup]="address" *ngIf="secondState()" (ngSubmit)="onSubmit()">
@@ -76,7 +74,7 @@
       ></app-inputs>
       <app-inputs placeholder="UF" className="text-12 p-3 flex-1 w-full" formControlName="uf"></app-inputs>
 
-      <select required placeholder="Zoneamento" class="flex-1 text-12 px-4" formControlName="zoneamento">
+      <select required placeholder="Zoneamento" class="flex-1 text-12 px-4 h-[40px]" formControlName="zoneamento">
         <option disabled selected value="">Zoneamento</option>
         <option value="Urbano">Urbano</option>
         <option value="Rural">Rural</option>
@@ -101,8 +99,6 @@
       ></app-inputs>
       <app-inputs placeholder="Bairro" className="text-12 p-3 flex-1 w-full" formControlName="bairro"></app-inputs>
     </app-grid>
-    <app-reorganize-input>
-      <app-button text="Continuar"></app-button>
-    </app-reorganize-input>
+    <app-button text="Continuar" className="px-4 mt-4"></app-button>
   </form>
 </app-list-div>

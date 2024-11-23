@@ -10,13 +10,14 @@ import { ClassService } from '../../api/class/class.service'
 import { IClassModel } from '../../api/class/IClass'
 import { ITableHeader } from '../../interfaces/TableHeader'
 import { NgFor } from '@angular/common'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-select-course',
   standalone: true,
   imports: [NgFor, FormsModule],
   templateUrl: './select-course.component.html',
-  providers: [GradeService, CourseService, AbsenceService, ClassService],
+  providers: [CourseService],
 })
 export class SelectCourseComponent implements ControlValueAccessor {
   @Input() onSelect: (course: ICourseModel) => void = () => {}
@@ -27,19 +28,14 @@ export class SelectCourseComponent implements ControlValueAccessor {
     curso_id: '',
   }
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService, private toastService: ToastrService) {}
 
   async ngOnInit() {
     await this.loadCourse()
   }
 
   async loadCourse() {
-    try {
-      const data = await this.courseService.getCourses()
-      this.courses = data
-    } catch (error) {
-      console.error('Erro ao carregar cursos:', error)
-    }
+    this.courses = await this.courseService.getCourses()
   }
 
   handleOnSelect(event: Event) {

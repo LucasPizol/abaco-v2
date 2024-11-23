@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { api } from '../api'
+import { ApiService } from '../api'
 import { IStudentModel } from '../student/Istudent'
 import { IGradeModel } from './IGrade'
 
@@ -7,36 +7,19 @@ import { IGradeModel } from './IGrade'
   providedIn: 'root',
 })
 export class GradeService {
-  constructor() {}
+  constructor(private readonly api: ApiService) {}
 
   async getGrades(id: number, data: string): Promise<IStudentModel[]> {
-    try {
-      const response = await api.get<IStudentModel[]>('/notas/' + id, {
-        data,
-      })
-
-      return response
-    } catch (error) {
-      console.error('Erro ao buscar notas:', error)
-      throw error
-    }
+    return await this.api.get<IStudentModel[]>('/notas/' + id, {
+      data,
+    })
   }
 
   async loadAllGrades(): Promise<IGradeModel[]> {
-    try {
-      return await api.get('/notas')
-    } catch (error) {
-      console.error('Erro ao buscar notas:', error)
-      throw error
-    }
+    return await this.api.get('/notas')
   }
 
   async createGrades(data: { cursos_id: number; data: Date; students: IStudentModel[] }) {
-    try {
-      return await api.post('/notas', data)
-    } catch (error) {
-      console.error('Erro ao buscar notas:', error)
-      throw error
-    }
+    return await this.api.post('/notas', data)
   }
 }

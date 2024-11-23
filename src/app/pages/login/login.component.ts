@@ -8,7 +8,7 @@ import { AuthenticationService } from '../../api/services/authentication.service
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ImgAbacoComponent, RouterModule, InputsComponent, FormsModule],
+  imports: [RouterModule, InputsComponent, FormsModule],
   providers: [AuthenticationService],
   templateUrl: './login.component.html',
   styles: `

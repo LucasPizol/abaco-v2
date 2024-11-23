@@ -82,24 +82,20 @@ export class ListEstComponent {
   }
 
   async loadStudents() {
-    try {
-      const { data, quantity } = await this.studentService.getStudents({
-        page: this.page,
-        pageSize: this.pageSize,
-        filters: this.filters,
-      })
+    const { data, quantity } = await this.studentService.getStudents({
+      page: this.page,
+      pageSize: this.pageSize,
+      filters: this.filters,
+    })
 
-      this.total = quantity
+    this.total = quantity
 
-      this.data = data.map(({ data_nascimento, ...data }) => ({
-        ...data,
-        data_nascimento: new Date(data_nascimento).toLocaleDateString('pt-br'),
-      }))
+    this.data = data.map(({ data_nascimento, ...data }) => ({
+      ...data,
+      data_nascimento: new Date(data_nascimento).toLocaleDateString('pt-br'),
+    }))
 
-      this.createPaginationPages()
-    } catch (error) {
-      console.error('Erro ao carregar estudantes:', error)
-    }
+    this.createPaginationPages()
   }
 
   handlePagination(page: string) {

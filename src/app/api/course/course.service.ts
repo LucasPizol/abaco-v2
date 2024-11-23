@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core'
-import { api } from '../api'
+import { ApiService } from '../api'
 import { ICourseModel } from './ICourse'
 
 @Injectable({
   providedIn: 'root',
 })
 export class CourseService {
-  constructor() { }
+  constructor(private readonly api: ApiService) {}
 
   async getCourses(): Promise<ICourseModel[]> {
     try {
-      const response = await api.get<ICourseModel[]>('/cursos')
+      const response = await this.api.get<ICourseModel[]>('/cursos')
       return response
     } catch (error) {
-      console.error('Erro ao buscar estudantes:', error)
       throw error
     }
   }
