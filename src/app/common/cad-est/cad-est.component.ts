@@ -33,11 +33,7 @@ import { ToastrService } from 'ngx-toastr'
   templateUrl: './cad-est.component.html',
 })
 export class CadEstComponent {
-  constructor(
-    private readonly studentService: StudentService,
-    private readonly router: Router,
-    private readonly toastService: ToastrService
-  ) {}
+  constructor(private readonly studentService: StudentService, private readonly toastService: ToastrService) {}
 
   state = 0
   formGroup = new FormGroup({

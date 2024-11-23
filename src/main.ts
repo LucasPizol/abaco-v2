@@ -10,6 +10,7 @@ import { importProvidersFrom } from '@angular/core'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 import { provideHttpClient } from '@angular/common/http'
 import { provideToastr } from 'ngx-toastr'
+import { ApiService } from './app/api/api'
 
 registerLocaleData(pt)
 
