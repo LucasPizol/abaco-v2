@@ -11,5 +11,4 @@ export class ButtonComponent {
   @Input() text: string = ''
   @Input() className: string = ''
   @Input() click: Function = () => {}
-  @Input() route: string = ''
 }

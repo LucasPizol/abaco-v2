@@ -3,41 +3,44 @@
     <app-titles text="Lançamento de Notas"></app-titles>
   </app-reorganizes-main>
 
-  <form class="grid gap-4 w-full">
-    <app-grid>
-      <select
-        required
-        placeholder="Curso"
-        class="text-12 p-3 flex-1 w-full"
-        [(ngModel)]="formData.curso_id"
-        name="curso_id"
-      >
-        <option disabled selected value="">Selecione o Curso</option>
+  <form class="flex w-full gap-4">
+    <div class="w-full">
+      <app-grid>
+        <select
+          required
+          placeholder="Curso"
+          class="text-12 p-3 flex-1 w-full"
+          [(ngModel)]="formData.curso_id"
+          name="curso_id"
+        >
+          <option disabled selected value="">Selecione o Curso</option>
 
-        <ng-container *ngFor="let item of courses">
-          <option [value]="item.id">{{ item.nome }}</option>
-        </ng-container>
-      </select>
-      <app-inputs
-        className="text-12 p-3 flex-1 w-full"
-        type="date"
-        [(ngModel)]="formData.aula"
-        name="aula"
-        required
-        (change)="loadGrades()"
-      />
-    </app-grid>
-
-    <app-grid>
-      <app-inputs
-        type="string"
-        placeholder="Descrição"
-        className="text-12 p-3 flex-1 w-full"
-        [(ngModel)]="formData.descricao"
-        name="descricao"
-        required
-      />
-    </app-grid>
+          <ng-container *ngFor="let item of courses">
+            <option [value]="item.id">{{ item.nome }}</option>
+          </ng-container>
+        </select>
+        <app-inputs
+          className="text-12 p-3 flex-1 w-full"
+          type="date"
+          [(ngModel)]="formData.aula"
+          name="aula"
+          required
+          (change)="loadGrades()"
+        />
+      </app-grid>
+    </div>
+    <div class="w-full">
+      <app-grid>
+        <app-inputs
+          type="string"
+          placeholder="Descrição"
+          className="text-12 p-3 flex-1 w-full"
+          [(ngModel)]="formData.descricao"
+          name="descricao"
+          required
+        />
+      </app-grid>
+    </div>
   </form>
   <div style="height: 300px; overflow-y: auto" class="w-full">
     <app-table
@@ -56,6 +59,6 @@
     </div>
   </ng-template>
   <app-reorganize-input>
-    <app-button text="Salvar" (click)="onSubmit()"></app-button>
+    <app-button text="Salvar" (click)="onSubmit()" className="px-4"></app-button>
   </app-reorganize-input>
 </app-list-div>
