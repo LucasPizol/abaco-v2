@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Inject } from '@angular/core'
 import { ListDivComponent } from '../../components/list-div/list-div.component'
 import { ReorganizeInputComponent } from '../../components/reorganize-input/reorganize-input.component'
 import { TitlesComponent } from '../../components/titles/titles.component'
