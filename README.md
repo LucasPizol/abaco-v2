@@ -1,6 +1,6 @@
 # Front-end abaco
 
-## Iniciando no projeto
+## Iniciando o projeto
 Clone o repositório
 ```bash
 git clone https://github.com/AbacoSystem/front-abaco
