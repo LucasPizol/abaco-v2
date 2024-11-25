@@ -29,6 +29,7 @@ export class CadastroCursoComponent {
     private readonly docenteService: DocenteService
   ) {}
 
+  isLoading = false
   docentes: IDocenteModel[] = []
 
   formData = new FormGroup({
@@ -47,16 +48,23 @@ export class CadastroCursoComponent {
     const formValues = this.formData.value
 
     if (this.formData.valid) {
-      await this.courseService.createCourse({
-        descricao: formValues.descricao!,
-        data_inicio: formValues.data_inicio!,
-        data_fim: formValues.data_fim!,
-        nome: formValues.nome!,
-        docente_id: parseInt(formValues.docente_id!),
-      } as any)
-      this.toastService.success('Curso criada com sucesso')
-      this.formData.reset()
-      return
+      this.isLoading = true
+
+      try {
+        await this.courseService.createCourse({
+          descricao: formValues.descricao!,
+          data_inicio: formValues.data_inicio!,
+          data_fim: formValues.data_fim!,
+          nome: formValues.nome!,
+          docente_id: parseInt(formValues.docente_id!),
+        } as any)
+        this.toastService.success('Curso criada com sucesso')
+        this.formData.reset()
+        return
+      } catch (error) {
+      } finally {
+        this.isLoading = false
+      }
     }
 
     this.toastService.error('Preencha todos os campos')

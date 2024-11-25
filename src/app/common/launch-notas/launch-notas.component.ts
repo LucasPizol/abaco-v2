@@ -47,6 +47,7 @@ export class LaunchNotasComponent {
     private readonly toastService: ToastrService
   ) {}
 
+  isLoading = false
   data: IStudentModel[] = []
 
   courses: ICourseModel[] = []
@@ -128,19 +129,27 @@ export class LaunchNotasComponent {
       return
     }
 
-    await this.gradeService.createGrades({
-      cursos_id: parseFloat(this.formData.curso_id),
-      students: this.data,
-      data: this.formData.aula,
-    })
+    this.isLoading = true
 
-    this.toastService.success('Notas lançadas com sucesso!')
-    this.formData = {
-      curso_id: '',
-      aula: undefined,
-      descricao: '',
+    try {
+      await this.gradeService.createGrades({
+        cursos_id: parseFloat(this.formData.curso_id),
+        students: this.data,
+        data: this.formData.aula,
+      })
+
+      this.toastService.success('Notas lançadas com sucesso!')
+      this.formData = {
+        curso_id: '',
+        aula: undefined,
+        descricao: '',
+      }
+
+      this.data = []
+    } catch (error) {
+      this.toastService.error('Erro ao lançar notas')
+    } finally {
+      this.isLoading = false
     }
-
-    this.data = []
   }
 }

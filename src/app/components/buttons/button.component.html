@@ -2,8 +2,11 @@
   (click)="(click)"
   class="bg-[#FBB03B] rounded font-[varela round] text-lg max-w-[150px] h-[40px]
         flex justify-center items-center hover:bg-opacity-70 {{ className }}
+        {{ isLoading ? 'cursor-not-allowed bg-[#dedede]' : 'cursor-pointer' }}
         {{ className.includes('text-[') ? '' : 'text-[#fff]' }}
         "
+  [disabled]="isLoading"
+  [type]="type"
 >
-  {{ text }}
+  {{ isLoading ? 'Carregando...' : text }}
 </button>

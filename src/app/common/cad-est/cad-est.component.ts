@@ -35,6 +35,7 @@ import { ToastrService } from 'ngx-toastr'
 export class CadEstComponent {
   constructor(private readonly studentService: StudentService, private readonly toastService: ToastrService) {}
 
+  isLoading = false
   state = 0
   formGroup = new FormGroup({
     nome: new FormControl('', [Validators.required]),
@@ -95,10 +96,13 @@ export class CadEstComponent {
     }
   }
 
-  async submitStudentForm() {
+  submitStudentForm() {
     if (this.formGroup.valid) {
       this.handleNextState()
+      return
     }
+
+    this.toastService.error('Preencha todos os campos')
   }
 
   handleOnSelectCourse(course: ICourseModel) {
@@ -108,6 +112,12 @@ export class CadEstComponent {
   }
 
   async onSubmit() {
+    if (!this.formGroup.valid || !this.address.valid) {
+      this.toastService.error('Preencha todos os campos')
+      return
+    }
+    this.isLoading = true
+
     try {
       await this.studentService.registerStudent(this.formGroup.value as any, this.address.value as any)
       this.toastService.success('Estudante cadastrado com sucesso!')
@@ -118,6 +128,10 @@ export class CadEstComponent {
         escolaridade: '',
       })
       this.state = 0
-    } catch (error) {}
+    } catch (error) {
+      this.toastService.error('Erro ao cadastrar estudante')
+    } finally {
+      this.isLoading = false
+    }
   }
 }

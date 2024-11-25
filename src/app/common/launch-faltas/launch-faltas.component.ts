@@ -37,9 +37,18 @@ import { ToastrService } from 'ngx-toastr'
   providers: [GradeService, CourseService, AbsenceService, ClassService],
 })
 export class LaunchFaltasComponent {
+  constructor(
+    private absenceService: AbsenceService,
+    private breakpointService: BreakpointService,
+    private courseService: CourseService,
+    private classService: ClassService,
+    private toastService: ToastrService
+  ) {}
+
   page = 0
   pageSize = 10
   filters = {}
+  isLoading = false
 
   data: IStudentModel[] = []
   classes: IClassModel[] = []
@@ -52,14 +61,6 @@ export class LaunchFaltasComponent {
   }
 
   imgEdit = '<app-img-edit></app-img-edit>'
-
-  constructor(
-    private absenceService: AbsenceService,
-    private breakpointService: BreakpointService,
-    private courseService: CourseService,
-    private classService: ClassService,
-    private toastService: ToastrService
-  ) {}
 
   async ngOnInit() {
     await this.loadCourse()
@@ -142,6 +143,8 @@ export class LaunchFaltasComponent {
   }
 
   async onSubmit() {
+    this.isLoading = true
+
     try {
       await this.absenceService.register(this.data, parseInt(this.formData.aula_id))
       this.classes = []
@@ -151,6 +154,10 @@ export class LaunchFaltasComponent {
       }
       this.data = []
       this.toastService.success('Faltas lançadas com sucesso')
-    } catch (error) {}
+    } catch (error) {
+      this.toastService.error('Erro ao lançar faltas')
+    } finally {
+      this.isLoading = false
+    }
   }
 }

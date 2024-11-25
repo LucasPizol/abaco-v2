@@ -35,6 +35,6 @@
   </div>
 
   <app-reorganize-input class="flex align-right">
-    <app-button text="Salvar" (click)="onSubmit()" className="px-4"></app-button>
+    <app-button text="Salvar" (click)="onSubmit()" className="px-4" [isLoading]="isLoading"></app-button>
   </app-reorganize-input>
 </app-list-div>

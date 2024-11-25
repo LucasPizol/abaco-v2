@@ -11,4 +11,6 @@ export class ButtonComponent {
   @Input() text: string = ''
   @Input() className: string = ''
   @Input() click: Function = () => {}
+  @Input() isLoading: boolean = false
+  @Input() type: 'button' | 'submit' | 'reset' = 'submit'
 }

@@ -37,10 +37,18 @@ export class PostarAulasComponent {
     'horario-minutos': new FormControl('', [Validators.required]),
   })
 
+  isLoading = false
+
   async onSubmit() {
     const formValues = this.formData.value
 
-    if (this.formData.valid) {
+    if (!this.formData.valid) {
+      this.toastService.error('Preencha todos os campos')
+      return
+    }
+    this.isLoading = true
+
+    try {
       await this.classService.createClass({
         descricao: formValues.descricao!,
         aula: formValues.aula!,
@@ -50,10 +58,11 @@ export class PostarAulasComponent {
       } as any)
       this.toastService.success('Aula criada com sucesso')
       this.formData.reset()
-      return
+    } catch (error) {
+      this.toastService.error('Erro ao criar aula')
+    } finally {
+      this.isLoading = false
     }
-
-    this.toastService.error('Preencha todos os campos')
   }
 
   handleOnSelectCourse(course: ICourseModel) {
