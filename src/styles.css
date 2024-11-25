@@ -68,6 +68,7 @@ a,
 button,
 label,
 span,
-textarea {
+textarea,
+select {
   font-family: 'Varela Round', sans-serif !important;
 }
