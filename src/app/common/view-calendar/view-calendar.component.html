@@ -2,11 +2,15 @@
   <div class="flex flex-col items-start justify-center flex-1 gap-y-8">
     <app-titles text="Visualização do Calendário" />
     <app-popout></app-popout>
-    <nz-calendar
-      [(ngModel)]="date"
-      [(nzMode)]="mode"
-      (nzPanelChange)="panelChange($event)"
-      class="w-full"
-    ></nz-calendar>
+    <nz-calendar [nzMode]="mode" (nzModeChange)="onModeChange($event)" (nzPanelChange)="onPanelChange($event)">
+      <ng-container *nzDateCell="let date">
+        <div class="calendar-cell">
+          <p>{{ date.getDate() }}</p>
+          <ng-container *ngFor="let event of getEventsForDate(date)">
+            <nz-badge *ngIf="event" [nzText]="event.title" [nzColor]="event.color" class="event-badge"></nz-badge>
+          </ng-container>
+        </div>
+      </ng-container>
+    </nz-calendar>
   </div>
 </app-list-div>

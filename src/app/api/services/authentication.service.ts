@@ -20,7 +20,7 @@ export class AuthenticationService {
     return await this.api.post('/login', { email, senha })
   }
 
-  async getDocente(): Promise<any> {
+  async getDocente(): Promise<IDocenteModel | undefined> {
     if (typeof window === 'undefined') {
       return
     }

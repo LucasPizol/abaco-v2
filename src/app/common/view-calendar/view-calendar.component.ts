@@ -1,39 +1,49 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { AsideComponent } from '../aside/aside.component'
-import { ReorganizesMainComponent } from '../../components/reorganizes-main/reorganizes-main.component'
 import { ListDivComponent } from '../../components/list-div/list-div.component'
 import { TitlesComponent } from '../../components/titles/titles.component'
 import { NzCalendarComponent, NzCalendarMode } from 'ng-zorro-antd/calendar'
-import { BtnDownComponent } from '../../components/buttons/btn-down/btn-down.component'
 import { PopoutComponent } from '../../components/popout/popout.component'
 import { GradeService } from '../../api/grade/grade.service'
+import { CommonModule } from '@angular/common'
+import { IClassModel } from '../../api/class/IClass'
+import { ClassService } from '../../api/class/class.service'
+import { NzBadgeModule } from 'ng-zorro-antd/badge' // Para exibir eventos
+
+type IClass = Record<string, IClassModel[]>
 
 @Component({
   selector: 'app-view-calendar',
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [ListDivComponent, TitlesComponent, NzCalendarComponent, PopoutComponent],
+  imports: [ListDivComponent, TitlesComponent, NzCalendarComponent, PopoutComponent, CommonModule, NzBadgeModule],
   templateUrl: './view-calendar.component.html',
   providers: [GradeService],
 })
 export class ViewCalendarComponent {
-  date = new Date(2012, 11, 21)
+  constructor(private readonly classService: ClassService) {}
   mode: NzCalendarMode = 'month'
+  events = [
+    { date: new Date(2024, 10, 15), title: 'Team Meeting', color: 'blue' },
+    { date: new Date(2024, 0, 15), title: 'Project Deadline', color: 'red' },
+    { date: new Date(2024, 0, 22), title: 'Client Presentation', color: 'green' },
+    { date: new Date(2024, 1, 5), title: 'Product Launch', color: 'purple' },
+  ]
 
-  constructor(private readonly gradeService: GradeService) {}
-
-  panelChange(change: { date: Date; mode: string }): void {
-    console.log(change.date, change.mode)
+  onModeChange(mode: NzCalendarMode): void {
+    this.mode = mode
   }
 
-  async ngOnInit() {
-    this.loadGrades()
+  onPanelChange(event: { date: Date; mode: NzCalendarMode }): void {
+    console.log(event.date, event.mode)
   }
 
-  async loadGrades() {
-    try {
-      const data = await this.gradeService.loadAllGrades()
-      console.log({ data })
-    } catch (error) {}
+  getEventsForDate(date: Date): any[] {
+    console.log({ date })
+    return this.events.filter(
+      (event) =>
+        event.date.getFullYear() === date.getFullYear() &&
+        event.date.getMonth() === date.getMonth() &&
+        event.date.getDate() === date.getDate()
+    )
   }
 }

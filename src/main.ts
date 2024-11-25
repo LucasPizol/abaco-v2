@@ -2,25 +2,24 @@ import { bootstrapApplication } from '@angular/platform-browser'
 import { provideRouter } from '@angular/router'
 import { AppComponent } from './app/app.component'
 import { routes } from './app/app.routes'
-import { pt_BR, provideNzI18n } from 'ng-zorro-antd/i18n'
-import { registerLocaleData } from '@angular/common'
-import pt from '@angular/common/locales/pt'
+import { provideNzI18n, en_US } from 'ng-zorro-antd/i18n'
 import { FormsModule } from '@angular/forms'
+import br from '@angular/common/locales/br'
 import { importProvidersFrom } from '@angular/core'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 import { provideHttpClient } from '@angular/common/http'
 import { provideToastr } from 'ngx-toastr'
-import { ApiService } from './app/api/api'
+import { registerLocaleData } from '@angular/common'
 
-registerLocaleData(pt)
+registerLocaleData(br)
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideNzI18n(pt_BR),
     importProvidersFrom(FormsModule),
     provideAnimationsAsync(),
     provideHttpClient(),
     provideToastr(),
+    provideNzI18n(en_US),
   ],
 }).catch((err) => console.error(err))

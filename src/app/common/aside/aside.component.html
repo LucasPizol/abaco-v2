@@ -24,7 +24,7 @@ duration-500
       <span class="block h-1 bg-black rounded w-5"></span>
     </div>
 
-    <img src="/abaco-logo.png" alt="Logo Abaco" class="sm:h-[80px]" route="/teacher" />
+    <img src="/abaco-logo.png" alt="Logo Abaco" class="sm:h-[80px] cursor-pointer" (click)="navigateTo('/teacher')" />
     <app-reorganizes-div class="sm:w-auto sm:px-10 md:px-30 place-self-start">
       <app-titles text="CALENDARIO"></app-titles>
       <app-nav-link label="Visualização" route="/calendario" (click)="setHidden()"></app-nav-link>
@@ -43,10 +43,15 @@ duration-500
       <app-nav-link label="Lista de Aulas" route="/listaulas" (click)="setHidden()"></app-nav-link>
       <app-nav-link label="Lista de Frequência" route="/listfrequencia" (click)="setHidden()"></app-nav-link>
     </app-reorganizes-div>
-    <app-reorganizes-div class="w-full sm:w-auto sm:px-10 md:px-30 place-self-start">
-      <app-titles text="CURSOS"></app-titles>
-      <app-nav-link label="Criar curso" route="/cadastrar-curso" (click)="setHidden()"></app-nav-link>
-    </app-reorganizes-div>
+    <ng-container *ngIf="isAdmin()">
+      <app-reorganizes-div class="w-full sm:w-auto sm:px-10 md:px-30 place-self-start">
+        <app-titles text="CURSOS"></app-titles>
+        <app-nav-link
+          label="Criar curso"
+          route="/cadastrar-curso"
+          (click)="setHidden()"
+        ></app-nav-link> </app-reorganizes-div
+    ></ng-container>
     <app-main-btn class="w-full max-w-36" text="Usuário" route="/login" (click)="logout()"></app-main-btn>
   </app-aside-div>
 </app-reorganizes-div>
