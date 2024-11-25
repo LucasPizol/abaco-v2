@@ -17,6 +17,7 @@ export type ITableHeader<T extends object = any> = {
   label: string
   className?: string
   render?: (value: T) => Comp
+  renderItem?: (value: T) => string
   actions?: {
     onClick: (value: T) => void
     label?: string

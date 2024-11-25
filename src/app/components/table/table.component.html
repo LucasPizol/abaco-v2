@@ -33,7 +33,12 @@
           }
 
           <ng-container *ngIf="!header.render">
-            {{ item[header.key] }}
+            <ng-container *ngIf="header.renderItem">
+              {{ header.renderItem(item) }}
+            </ng-container>
+            <ng-container *ngIf="!header.renderItem">
+              {{ item[header.key] }}
+            </ng-container>
           </ng-container>
         </td>
 

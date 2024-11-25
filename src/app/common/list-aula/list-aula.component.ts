@@ -46,7 +46,15 @@ export class ListAulaComponent {
       label: 'Nome da Aula',
       className: 'w-1/2',
     },
-    { key: 'aula', label: 'Data', className: 'w-1/2' },
+    {
+      key: 'aula',
+      label: 'Data',
+      className: 'w-1/2',
+      renderItem: (value) => {
+        const [dia, mes, ano] = value.aula.split('/')
+        return `${dia}/${mes}/${ano} - ${value.horario}`
+      },
+    },
     {
       key: 'Ações',
       label: 'Ações',
@@ -87,14 +95,23 @@ export class ListAulaComponent {
   }
 
   async loadClass() {
-    const data = await this.classService.getClass(1)
-    this.data = data.map(({ aula, ...datas }) => {
-      const [ano, mes, dia] = aula.split('-')
-      return {
-        ...datas,
-        aula: `${dia}/${mes}/${ano}`,
-      }
-    })
+    const data = await this.classService.loadClasses()
+    this.data = data
+      .map(({ aula, ...datas }) => {
+        const [ano, mes, dia] = aula.split('-')
+        return {
+          ...datas,
+          aula: `${dia}/${mes}/${ano}`,
+        }
+      })
+      .sort((a, b) => {
+        const [diaA, mesA, anoA] = a.aula.split('/')
+        const [diaB, mesB, anoB] = b.aula.split('/')
+
+        const dateA = new Date(`${anoA}-${mesA}-${diaA}T${a.horario}`)
+        const dateB = new Date(`${anoB}-${mesB}-${diaB}T${b.horario}`)
+        return dateA.getTime() - dateB.getTime()
+      })
   }
 
   handleCancel() {

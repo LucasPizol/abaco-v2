@@ -120,13 +120,25 @@ export class LaunchFaltasComponent {
   }
 
   async loadClasses() {
-    this.classes = await this.classService.getClass(parseInt(this.formData.curso_id))
+    const classes = await this.classService.getClass(parseInt(this.formData.curso_id))
+
+    this.classes = classes.sort((a, b) => {
+      const [anoA, mesA, diaA] = a.aula.split('-')
+      const [anoB, mesB, diaB] = b.aula.split('-')
+
+      const dateA = new Date(`${anoA}-${mesA}-${diaA}T${a.horario}`)
+      const dateB = new Date(`${anoB}-${mesB}-${diaB}T${b.horario}`)
+      return dateA.getTime() - dateB.getTime()
+    })
+
     this.formData.aula_id = ''
     this.data = []
   }
 
-  getDate(data: string | Date) {
-    return new Date(data).toLocaleDateString('pt-br')
+  getDate(item: IClassModel) {
+    const [anoA, mesA, diaA] = item.aula.split('-')
+
+    return `${diaA}/${mesA}/${anoA} - ${item.horario}`
   }
 
   async onSubmit() {
