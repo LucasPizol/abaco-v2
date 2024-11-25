@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios'
 import { ToastrService } from 'ngx-toastr'
 
 const ApiAxiosCreate = axios.create({
-  baseURL: 'http://localhost:3125',
+  baseURL: 'http://3.92.208.132:3125',
 })
 
 ApiAxiosCreate.interceptors.request.use((config) => {
