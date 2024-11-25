@@ -1,0 +1,52 @@
+<app-list-div>
+  <form [formGroup]="formData" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full max-w-3xl">
+    <app-titles text="Cadastro de curso" />
+
+    <label class="text-xs">Nome do curso</label>
+    <app-inputs
+      type="string"
+      placeholder="Nome do curso"
+      className="h-[40px] w-full text-12 px-4"
+      formControlName="nome"
+      class="-mt-3"
+    />
+
+    <label class="text-xs">Data de início</label>
+    <app-inputs
+      className="rounded h-[40px] w-full text-12 px-2"
+      class="flex-1"
+      type="Date"
+      formControlName="data_inicio"
+      class="-mt-3"
+    />
+
+    <label class="text-xs">Data fim</label>
+    <app-inputs
+      className="rounded h-[40px] w-full text-12 px-2"
+      class="flex-1"
+      type="Date"
+      formControlName="data_fim"
+      class="-mt-3"
+    />
+
+    <label class="text-xs">Selecione o docente responsável</label>
+    <select required placeholder="Curso" class="text-12 p-3 flex-1 w-full -mt-3" formControlName="docente_id">
+      <option disabled selected value="">Selecione o Docente</option>
+      <ng-container *ngFor="let item of docentes">
+        <option [value]="item.id">{{ item.id }} - {{ item.nome }}</option>
+      </ng-container>
+    </select>
+
+    <label class="text-xs">Descrição</label>
+    <textarea
+      rows="5"
+      type="string"
+      placeholder="Descrição"
+      class="w-full text-12 p-4 resize-none -mt-3"
+      formControlName="descricao"
+    ></textarea>
+    <div class="justify-end flex">
+      <app-button text="Criar" className="px-4" />
+    </div>
+  </form>
+</app-list-div>

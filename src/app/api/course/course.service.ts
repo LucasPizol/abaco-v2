@@ -16,4 +16,12 @@ export class CourseService {
       throw error
     }
   }
+
+  async createCourse(course: ICourseModel): Promise<void> {
+    try {
+      await this.api.post('/cursos', course)
+    } catch (error) {
+      throw error
+    }
+  }
 }
