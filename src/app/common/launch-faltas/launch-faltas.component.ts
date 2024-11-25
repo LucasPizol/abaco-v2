@@ -17,6 +17,7 @@ import { ClassService } from '../../api/class/class.service'
 import { IClassModel } from '../../api/class/IClass'
 import { ITableHeader } from '../../interfaces/TableHeader'
 import { ButtonComponent } from '../../components/buttons/button.component'
+import { ToastrService } from 'ngx-toastr'
 @Component({
   selector: 'app-launch-faltas',
   standalone: true,
@@ -56,7 +57,8 @@ export class LaunchFaltasComponent {
     private absenceService: AbsenceService,
     private breakpointService: BreakpointService,
     private courseService: CourseService,
-    private classService: ClassService
+    private classService: ClassService,
+    private toastService: ToastrService
   ) {}
 
   async ngOnInit() {
@@ -136,6 +138,7 @@ export class LaunchFaltasComponent {
         curso_id: '',
       }
       this.data = []
+      this.toastService.success('Faltas lançadas com sucesso')
     } catch (error) {}
   }
 }

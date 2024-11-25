@@ -11,6 +11,7 @@ import { FormControl, FormGroup, NgControl, ReactiveFormsModule, Validators } fr
 import { ClassService } from '../../api/class/class.service'
 import { ButtonComponent } from '../../components/buttons/button.component'
 import { ICourseModel } from '../../api/course/ICourse'
+import { ToastrService } from 'ngx-toastr'
 @Component({
   selector: 'app-postar-aulas',
   standalone: true,
@@ -25,7 +26,7 @@ import { ICourseModel } from '../../api/course/ICourse'
   templateUrl: './postar-aulas.component.html',
 })
 export class PostarAulasComponent {
-  constructor(private readonly classService: ClassService) {}
+  constructor(private readonly classService: ClassService, private readonly toastService: ToastrService) {}
 
   formData = new FormGroup({
     cursos_id: new FormControl('', [Validators.required]),
@@ -39,9 +40,7 @@ export class PostarAulasComponent {
   async onSubmit() {
     const formValues = this.formData.value
 
-    console.log('formValues:', formValues)
-
-    if (this.formData.valid)
+    if (this.formData.valid) {
       await this.classService.createClass({
         descricao: formValues.descricao!,
         aula: formValues.aula!,
@@ -49,6 +48,12 @@ export class PostarAulasComponent {
         conteudo: formValues.conteudo!,
         cursos_id: Number(formValues.cursos_id),
       } as any)
+      this.toastService.success('Aula criada com sucesso')
+      this.formData.reset()
+      return
+    }
+
+    this.toastService.error('Preencha todos os campos')
   }
 
   handleOnSelectCourse(course: ICourseModel) {
